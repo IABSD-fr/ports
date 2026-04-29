@@ -22,6 +22,7 @@ COMPILER =		base-clang ports-gcc
 CXXFLAGS =	-std=c++98
 
 CONFIGURE_STYLE= autoconf
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/autoconf
 AUTOCONF_VERSION= 2.61
 CONFIGURE_ARGS+= --without-nat \
 		--with-openssl

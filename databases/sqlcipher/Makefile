@@ -46,6 +46,10 @@ CFLAGS+=	-DOMIT_MEMLOCK \
 		-DSQLITE_ENABLE_COLUMN_METADATA \
 		-DSQLITE_ENABLE_UNLOCK_NOTIFY
 
+post-extract:
+	cp ${PORTSDIR}/infrastructure/db/config.guess ${WRKSRC}/autosetup/autosetup-config.guess
+	cp ${PORTSDIR}/infrastructure/db/config.sub ${WRKSRC}/autosetup/autosetup-config.sub
+
 post-install:
 	mv ${PREFIX}/bin/{sqlite3,sqlcipher}
 	mv ${PREFIX}/lib/lib{sqlite3,sqlcipher}.a

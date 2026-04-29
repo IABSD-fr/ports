@@ -82,11 +82,11 @@ SUPDISTFILES.bsp +=	${BOOTSTRAP-$m}
 .endfor
 
 # per MACHINE_ARCH configuration
-TRIPLE_ARCH-aarch64 =	aarch64-unknown-openbsd
-TRIPLE_ARCH-amd64 =	x86_64-unknown-openbsd
-TRIPLE_ARCH-powerpc64 =	powerpc64-unknown-openbsd
-TRIPLE_ARCH-riscv64 =	riscv64gc-unknown-openbsd
-TRIPLE_ARCH-sparc64 =	sparc64-unknown-openbsd
+TRIPLE_ARCH-aarch64 =	aarch64-unknown-iabsd
+TRIPLE_ARCH-amd64 =	x86_64-unknown-iabsd
+TRIPLE_ARCH-powerpc64 =	powerpc64-unknown-iabsd
+TRIPLE_ARCH-riscv64 =	riscv64gc-unknown-iabsd
+TRIPLE_ARCH-sparc64 =	sparc64-unknown-iabsd
 TRIPLE_ARCH =	${TRIPLE_ARCH-${MACHINE_ARCH}}
 
 # one of "base", "embedded", "ports"
@@ -176,12 +176,23 @@ TEST_DEPENDS +=		devel/git \
 # - disable vendor checksum checks
 # - patch openssl-sys using sed
 post-patch:
+	for _f in $$(find ${WRKSRC} -name config.guess); do \
+		cp ${PORTSDIR}/infrastructure/db/config.guess $$_f; \
+	done
+	cp ${WRKSRC}/compiler/rustc_target/src/spec/targets/x86_64_unknown_openbsd.rs \
+		${WRKSRC}/compiler/rustc_target/src/spec/targets/x86_64_unknown_iabsd.rs
+	sed -i 's/x86_64-unknown-openbsd/x86_64-unknown-iabsd/g; s/64-bit OpenBSD/64-bit IABSD/g' \
+		${WRKSRC}/compiler/rustc_target/src/spec/targets/x86_64_unknown_iabsd.rs
 	sed -i 's/"files":{[^}]*}/"files":{}/' \
 		${WRKSRC}/vendor/*/.cargo-checksum.json
 	sed -i -e "/ => ('.', '.'),/h" \
 		-e "/ => ('.', '.', '.'),/h" \
 		-e "/_ => version_error(),/{g; s/(.*) =>/_ =>/; }" \
 		"${WRKSRC}/vendor/openssl-sys"*"/build/main.rs"
+	sed -i 's/if host == target/if (host == target || (host.contains("openbsd") \&\& target.contains("iabsd")))/' \
+		"${WRKSRC}/vendor/openssl-sys"*"/build/find_normal.rs"
+	sed -i 's/target.contains("openbsd") || target.contains("aix")/target.contains("openbsd") || target.contains("iabsd") || target.contains("aix")/' \
+		"${WRKSRC}/vendor/openssl-sys"*"/build/find_normal.rs"
 
 # - check datasize limit before configuring (and building)
 pre-configure:
@@ -245,7 +256,7 @@ do-configure:
 	echo 'llvm-config = "/usr/bin/llvm-config"' \
 		>>${WRKBUILD}/config.toml
 .elif ${RUST_LLVM_VERSION:L:Mports}
-	echo 'llvm-config = "${LOCALBASE}/bin/llvm-config-${MODCLANG_VERSION}"' \
+	echo 'llvm-config = "${LOCALBASE}/llvm${MODCLANG_VERSION}/bin/llvm-config"' \
 		>>${WRKBUILD}/config.toml
 .elif ${RUST_LLVM_VERSION:L:Membedded}
 	# empty

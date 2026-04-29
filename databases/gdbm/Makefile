@@ -18,6 +18,7 @@ LIB_DEPENDS=		devel/gettext,-runtime
 WANTLIB=		c curses iconv intl pthread readline
 
 CONFIGURE_STYLE=	gnu
+CONFIGURE_ENV +=	MAKEINFO=/usr/bin/true
 
 MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/build-aux
 

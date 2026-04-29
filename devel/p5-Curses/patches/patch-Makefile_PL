@@ -1,0 +1,12 @@
+Add IABSD support.
+
+Index: Makefile.PL
+--- Makefile.PL.orig
++++ Makefile.PL
+@@ -151,6 +151,7 @@
+   },
+   'next'      => [ ''                       , '-lcurses -ltermcap'        ],
+   'openbsd'   => [ ''                       , '-lcurses -ltermcap'        ],
++  'iabsd'     => [ ''                       , '-lcurses -ltermcap'        ],
+   'os2'       => {
+     'bsd'     => [ ''                       , '-lcurses -ltermcap'        ],

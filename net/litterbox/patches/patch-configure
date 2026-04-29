@@ -1,0 +1,15 @@
+Add IABSD support.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -35,6 +35,9 @@
+ 	(OpenBSD)
+ 		config sqlite3
+ 		;;
++	(IABSD)
++		config sqlite3
++		;;
+ 	(Linux)
+ 		cflags -D_GNU_SOURCE
+ 		config sqlite3 libtls

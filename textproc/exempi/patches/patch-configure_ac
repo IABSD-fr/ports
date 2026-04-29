@@ -6,7 +6,7 @@ Index: configure.ac
  	*)
  		EXEMPI_PLATFORM_DEF=UNIX_ENV
 -		LDFLAGS="$LDFLAGS -lrt -ldl"
-+		uname | grep -q OpenBSD || LDFLAGS="$LDFLAGS -lrt -ldl"
++		uname | egrep -q 'OpenBSD|IABSD' || LDFLAGS="$LDFLAGS -lrt -ldl"
  		;;
  esac
  

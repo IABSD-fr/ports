@@ -21,6 +21,7 @@ MAKE_FLAGS =		LIBINTL="-L${LOCALBASE}/lib -liconv -lintl"
 USE_GMAKE =		Yes
 SEPARATE_BUILD =	Yes
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ENV =		EMACS=no
 
 post-install:

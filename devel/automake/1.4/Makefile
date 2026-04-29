@@ -6,6 +6,8 @@ PKGSPEC=	automake->=${VERSION},<1.5
 
 TEST_DEPENDS=	devel/gmake
 
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}
+
 pre-configure:
 	${SUBST_CMD} ${WRKSRC}/automake.texi
 

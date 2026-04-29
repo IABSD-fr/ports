@@ -6,5 +6,6 @@ SIGROK_VERSION =	0.1.2
 SHARED_LIBS +=  serialport                0.0 # 0.0
 
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/autostuff
 
 .include <bsd.port.mk>

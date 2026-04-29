@@ -81,6 +81,9 @@ CONFIGURE_ARGS+= --enable-read-only
 NET_SNMP_MIB_LIST+= smux
 .endif
 
+post-extract:
+	cp ${WRKSRC}/include/net-snmp/system/openbsd8.h ${WRKSRC}/include/net-snmp/system/iabsd.h
+
 pre-configure:
 	@if ! grep '^#define NETSNMP_DEFAULT_MIBS "${DEFAULT_MIBS}"$$' \
 	    ${WRKSRC}/include/net-snmp/net-snmp-config.h.in > /dev/null; then \
@@ -105,5 +108,6 @@ post-install:
 .for i in ASTERISK-MIB DIGIUM-MIB LLDP-MIB
 	${INSTALL_DATA} ${FILESDIR}/$i.txt ${PREFIX}/share/snmp/mibs
 .endfor
+	${INSTALL_DATA} ${WRKSRC}/include/net-snmp/system/iabsd.h ${PREFIX}/include/net-snmp/system/
 
 .include <bsd.port.mk>

@@ -29,4 +29,6 @@ CONFIGURE_ARGS=	--without-libregex \
 
 MAKE_FLAGS+=	INFO_DEPS=
 
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/config
+
 .include <bsd.port.mk>

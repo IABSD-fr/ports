@@ -1,7 +1,17 @@
 Index: install.sh
 --- install.sh.orig
 +++ install.sh
-@@ -102,7 +102,7 @@ Install()
+@@ -80,6 +80,9 @@ Install()
+     if [ "X$NUNAME" = "XOpenBSD" ]; then
+         MAKEBIN=gmake
+     fi
++    if [ "X$NUNAME" = "XIABSD" ]; then
++        MAKEBIN=gmake
++    fi
+     if [ "X$NUNAME" = "XFreeBSD" ]; then
+         MAKEBIN=gmake
+     fi
+@@ -102,7 +105,7 @@ Install()
      if [ "X${USER_BINARYINSTALL}" = "X" ]; then
          # Add DATABASE=pgsql or DATABASE=mysql to add support for database
          # alert entry

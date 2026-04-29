@@ -26,6 +26,7 @@ LIB_DEPENDS=		devel/libyajl \
 			textproc/icu4c
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=		--enable-parsers=all \
 			--with-www=curl
 

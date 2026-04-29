@@ -15,7 +15,7 @@ COMPILER =	base-clang ports-gcc base-gcc
 SITES =		http://lav.yar.ru/download/le/
 
 CONFIGURE_STYLE =	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 post-install:
 	@rm -rf ${PREFIX}/share/applications \
 		${PREFIX}/share/icons

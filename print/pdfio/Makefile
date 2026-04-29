@@ -25,9 +25,11 @@ CONFIGURE_STYLE=	gnu
 CONFIGURE_ARGS=		--disable-static \
 			--enable-shared
 
+TEST_TARGET=		test
+
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 pre-configure:
-	${SUBST_CMD} ${WRKSRC}/{Makefile.in,configure}
+		${SUBST_CMD} ${WRKSRC}/{Makefile.in,configure}
 
 .include <bsd.port.mk>
