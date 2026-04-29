@@ -31,7 +31,7 @@ Index: src/Makefile
  DEFINES+=-DUSER=\"${OSSEC_USER}\"
  DEFINES+=-DREMUSER=\"${OSSEC_USER_REM}\"
  DEFINES+=-DGROUPGLOBAL=\"${OSSEC_GROUP}\"
-@@ -90,9 +90,11 @@ else
+@@ -90,9 +90,19 @@ else
  ifeq (${uname_S},OpenBSD)
  #		DEFINES+=-DOpenBSD
  		DEFINES+=-pthread
@@ -42,10 +42,25 @@ Index: src/Makefile
 +		CFLAGS+=-I${LOCALBASE}/include
 +		OSSEC_LDFLAGS+=-L${LOCALBASE}/lib
 +		OSSEC_LDFLAGS+=-lmagic
++else
++ifeq (${uname_S},IABSD)
++		DEFINES+=-pthread
++		DEFINES+=-DUSE_MAGIC
++		LUA_PLAT=posix
++		CFLAGS+=-I${LOCALBASE}/include
++		OSSEC_LDFLAGS+=-L${LOCALBASE}/lib
++		OSSEC_LDFLAGS+=-lmagic
  else
  ifeq (${uname_S},HP-UX)
  		DEFINES+=-DHPUX
-@@ -121,7 +123,7 @@ OSSEC_CFLAGS=${CFLAGS}
+@@ -104,5 +114,6 @@ else
+ endif # HPUX
+ endif # OpenBSD
++endif # IABSD
+ endif # NetBSD
+ endif # FreeBSD
+ endif # Darwin
+@@ -121,7 +132,7 @@ OSSEC_CFLAGS=${CFLAGS}
  ifdef DEBUG
  	OSSEC_CFLAGS+=-g
  else
@@ -54,7 +69,7 @@ Index: src/Makefile
  endif #DEBUG
  
  ifneq (,$(filter ${CLEANFULL},yes y Y 1))
-@@ -189,6 +191,10 @@ ifneq (,$(filter ${USE_INOTIFY},auto yes y Y 1))
+@@ -189,6 +200,14 @@ ifneq (,$(filter ${USE_INOTIFY},auto yes y Y 1))
  		OSSEC_LDFLAGS+=-linotify -L/usr/local/lib -I/usr/local/include
  		OSSEC_CFLAGS+=-I/usr/local/include
  	endif
@@ -62,10 +77,14 @@ Index: src/Makefile
 +		OSSEC_LDFLAGS+=-Wl,-rpath=${LOCALBASE}/lib/inotify -linotify -L${LOCALBASE}/lib/inotify -I${LOCALBASE}/include/inotify
 +		OSSEC_CFLAGS+=-I${LOCALBASE}/include/inotify
 +	endif
++	ifeq (${uname_S},IABSD)
++		OSSEC_LDFLAGS+=-Wl,-rpath=${LOCALBASE}/lib/inotify -linotify -L${LOCALBASE}/lib/inotify -I${LOCALBASE}/include/inotify
++		OSSEC_CFLAGS+=-I${LOCALBASE}/include/inotify
++	endif
  endif
  
  ifneq (,$(filter ${USE_PRELUDE},auto yes y Y 1))
-@@ -360,7 +366,7 @@ install-agent: install-common
+@@ -360,7 +379,7 @@ install-agent: install-common
  	install -m 0550 -o root -g 0 ossec-agentd ${PREFIX}/bin
  	install -m 0550 -o root -g 0 agent-auth ${PREFIX}/bin
  
@@ -74,7 +93,7 @@ Index: src/Makefile
  
  install-local: install-server-generic
  
-@@ -369,12 +375,11 @@ install-hybrid: install-server-generic
+@@ -369,12 +388,11 @@ install-hybrid: install-server-generic
  install-server: install-server-generic
  
  install-common: build
@@ -91,7 +110,7 @@ Index: src/Makefile
  	install -m 0550 -o root -g 0 ossec-logcollector ${PREFIX}/bin
  	install -m 0550 -o root -g 0 ossec-syscheckd ${PREFIX}/bin
  	install -m 0550 -o root -g 0 ossec-execd ${PREFIX}/bin
-@@ -383,72 +388,73 @@ install-common: build
+@@ -383,72 +401,73 @@ install-common: build
  	install -m 0550 -o root -g 0 ${OSSEC_CONTROL_SRC} ${PREFIX}/bin/ossec-control
  
  ifeq (${LUA_ENABLE},yes)
@@ -196,7 +215,7 @@ Index: src/Makefile
  
  	install -m 0550 -o root -g 0 ossec-agentlessd ${PREFIX}/bin
  	install -m 0550 -o root -g 0 ossec-analysisd ${PREFIX}/bin
-@@ -470,27 +476,27 @@ install-server-generic: install-common
+@@ -470,27 +489,27 @@ install-server-generic: install-common
  	install -m 0550 -o root -g 0 syscheck_control ${PREFIX}/bin/
  	install -m 0550 -o root -g 0 rootcheck_control ${PREFIX}/bin/
  

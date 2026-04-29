@@ -1,0 +1,26 @@
+--- Makefile.orig	Thu Jun 11 05:52:21 2026
++++ Makefile	Thu Jun 11 05:52:21 2026
+@@ -23,6 +23,7 @@
+ PREFIX_Darwin=/usr
+ PREFIX_Linux=/usr
+ PREFIX_OpenBSD=/usr/local
++PREFIX_IABSD=/usr/local
+ PREFIX?=$(PREFIX_$(PLATFORM))
+ 
+ BINDIR?=$(PREFIX)/bin
+@@ -30,6 +31,7 @@
+ MANDIR_Darwin=$(PREFIX)/share/man
+ MANDIR_Linux=$(PREFIX)/share/man
+ MANDIR_OpenBSD=$(PREFIX)/man
++MANDIR_IABSD=$(PREFIX)/man
+ MANDIR?=$(MANDIR_$(PLATFORM))
+ 
+ CFLAGS?=-Os
+@@ -37,6 +39,7 @@
+ CFLAGS_Darwin=
+ CFLAGS_Linux=-fPIC -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -D_GNU_SOURCE
+ CFLAGS_OpenBSD=
++CFLAGS_IABSD=
+ CFLAGS+=$(CFLAGS_$(PLATFORM))
+ 
+ OBJECTS=insult.o

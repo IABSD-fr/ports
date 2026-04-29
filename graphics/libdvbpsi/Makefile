@@ -16,5 +16,5 @@ MAINTAINER=	Brad Smith <brad@comstyle.com>
 PERMIT_PACKAGE=	Yes
 
 CONFIGURE_STYLE= gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/.auto
 .include <bsd.port.mk>

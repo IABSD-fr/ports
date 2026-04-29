@@ -18,6 +18,7 @@ SITES=		http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/
 SEPARATE_BUILD=	Yes
 
 CONFIGURE_STYLE=gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ENV=	ac_cv_header_musicbrainz5_mb5_c_h=no
 
 .include <bsd.port.mk>

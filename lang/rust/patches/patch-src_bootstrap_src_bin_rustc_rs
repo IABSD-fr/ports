@@ -9,7 +9,7 @@ Index: src/bootstrap/src/bin/rustc.rs
              cmd.arg("-Ztls-model=initial-exec");
          }
 +
-+        if target.unwrap().contains("aarch64-unknown-openbsd")
++        if target.unwrap().contains("aarch64-unknown-iabsd")
 +            && crate_name == Some("rustc")
 +        {
 +            cmd.arg("-Z").arg("fewer-names");

@@ -1,0 +1,14 @@
+Handle IABSD shared library naming like OpenBSD.
+
+Index: mesonbuild/compilers/mixins/clike.py
+--- mesonbuild/compilers/mixins/clike.py.orig
++++ mesonbuild/compilers/mixins/clike.py
+@@ -999,7 +999,7 @@
+         for p in prefixes:
+             for s in suffixes:
+                 patterns.append(p + '{}.' + s)
+-        if shared and self.info.is_openbsd():
++        if shared and (self.info.is_openbsd() or self.info.is_iabsd()):
+             # Shared libraries on OpenBSD can be named libfoo.so.X.Y:
+             # https://www.openbsd.org/faq/ports/specialtopics.html#SharedLibs
+             #

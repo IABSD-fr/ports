@@ -30,6 +30,7 @@ LIB_DEPENDS=	textproc/opensp \
 BUILD_DEPENDS =	devel/help2man
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/config
 CXXFLAGS +=	-std=gnu++14
 # iconv.h
 CONFIGURE_ENV=	LDFLAGS="-L${LOCALBASE}/lib" \

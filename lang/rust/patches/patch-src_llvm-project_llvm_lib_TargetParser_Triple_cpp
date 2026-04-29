@@ -1,0 +1,14 @@
+Add IABSD target mapping to OpenBSD.
+
+Index: src/llvm-project/llvm/lib/TargetParser/Triple.cpp
+--- src/llvm-project/llvm/lib/TargetParser/Triple.cpp.orig
++++ src/llvm-project/llvm/lib/TargetParser/Triple.cpp
+@@ -719,6 +719,7 @@
+       .StartsWith("macos", Triple::MacOSX)
+       .StartsWith("managarm", Triple::Managarm)
+       .StartsWith("netbsd", Triple::NetBSD)
+       .StartsWith("openbsd", Triple::OpenBSD)
++      .StartsWith("iabsd", Triple::OpenBSD)
+       .StartsWith("solaris", Triple::Solaris)
+       .StartsWith("uefi", Triple::UEFI)
+       .StartsWith("win32", Triple::Win32)

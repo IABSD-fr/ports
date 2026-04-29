@@ -31,6 +31,7 @@ COMPILER_LANGS=	c
 
 USE_GMAKE=		Yes
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKDIST} ${WRKDIST}/bind/bind-9.11.36
 CONFIGURE_ARGS+=	--enable-early-chroot \
 			--enable-paranoia \
 			--with-srv-lease-file=/var/db/isc-dhcp/dhcpd.leases \

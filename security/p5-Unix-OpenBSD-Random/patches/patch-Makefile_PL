@@ -1,0 +1,14 @@
+Support IABSD (OpenBSD fork with same arc4random(3)).
+
+Index: Makefile.PL
+--- Makefile.PL.orig
++++ Makefile.PL
+@@ -6,7 +6,7 @@ use ExtUtils::MakeMaker;
+ # other OS do have an arc4random(3) but the quality on it may be iffy or
+ # it may require arc4random_stir(3) calls to suck less...
+ use lib qw(inc);
+-use Devel::AssertOS qw(OpenBSD);
++# OS check removed: IABSD fork has same arc4random(3) as OpenBSD
+
+ sub merge_key_into {
+     my ( $href, $target, $source ) = @_;

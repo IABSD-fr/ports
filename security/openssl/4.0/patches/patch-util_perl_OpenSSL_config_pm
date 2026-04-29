@@ -1,7 +1,15 @@
 Index: util/perl/OpenSSL/config.pm
 --- util/perl/OpenSSL/config.pm.orig
 +++ util/perl/OpenSSL/config.pm
-@@ -765,7 +765,6 @@ EOF
+@@ -135,6 +135,7 @@
+     ],
+     [ 'NetBSD:.*',                  '${MACHINE}-whatever-netbsd' ],
+     [ 'OpenBSD:.*',                 '${MACHINE}-whatever-openbsd' ],
++    [ 'IABSD:.*',                   '${MACHINE}-whatever-iabsd' ],
+     [ 'OpenUNIX:.*',                '${MACHINE}-unknown-OpenUNIX${VERSION}' ],
+     [ 'OSF1:.*?:.*?:.*alpha.*',
+       sub {
+@@ -765,7 +766,6 @@ EOF
        [ 'ia64-.*-openbsd.*',      { target => "BSD-nodef-ia64" } ],
        [ 'ia64-.*-.*bsd.*',        { target => "BSD-ia64" } ],
        [ 'x86_64-.*-dragonfly.*',  { target => "BSD-x86_64" } ],

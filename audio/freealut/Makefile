@@ -17,6 +17,7 @@ SITES=		http://connect.creativelabs.com/openal/Downloads/ALUT/
 LIB_DEPENDS=	audio/openal
 
 CONFIGURE_STYLE=gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/admin/autotools
 CONFIGURE_ARGS=	--enable-dependency-tracking
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include/" \
 		LDFLAGS="-L${LOCALBASE}/lib"

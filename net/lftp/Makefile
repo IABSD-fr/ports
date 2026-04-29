@@ -28,6 +28,7 @@ SITES=		http://lftp.yar.ru/ftp/ \
 
 LIBTOOL_FLAGS=	--tag=disable-shared
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=	--with-openssl \
 		--without-gnutls \
 		--disable-shared

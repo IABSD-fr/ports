@@ -23,6 +23,7 @@ RUN_DEPENDS =		devel/desktop-file-utils \
 LIB_DEPENDS =		games/allegro
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ENV =		CPPFLAGS="${CPPFLAGS} -I${LOCALBASE}/include"
 CFLAGS += -fgnu89-inline -fcommon
 

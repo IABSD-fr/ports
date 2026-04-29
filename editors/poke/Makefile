@@ -24,6 +24,7 @@ LIB_DEPENDS =		devel/boehm-gc \
 TEST_DEPENDS =		devel/dejagnu
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux ${WRKSRC}/jitter/build-aux
 
 # test failures due to missing hyperlink support in libtextstyle
 CONFIGURE_ARGS +=	--disable-hserver

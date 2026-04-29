@@ -24,6 +24,7 @@ TEST_DEPENDS=	shells/bash \
 		math/gnuplot
 
 CONFIGURE_STYLE=autoconf
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/config
 AUTOCONF_VERSION=2.69
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib -lm -lz"
