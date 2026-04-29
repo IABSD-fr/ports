@@ -24,6 +24,7 @@ LIB_DEPENDS=		textproc/libxml \
 			textproc/icu4c
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/config
 CONFIGURE_ARGS+=	--without-gnutls \
 			--without-memcached \
 			--without-redis

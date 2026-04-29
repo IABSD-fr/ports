@@ -51,4 +51,8 @@ CONFIGURE_ARGS+=--disable-asm
 
 NO_TEST=	Yes
 
+post-extract:
+	cp ${PORTSDIR}/infrastructure/db/config.guess ${WRKSRC}
+	cp ${PORTSDIR}/infrastructure/db/config.sub ${WRKSRC}
+
 .include <bsd.port.mk>

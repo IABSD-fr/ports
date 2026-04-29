@@ -11,7 +11,7 @@ Index: Makefile
  
  ifeq (${OSARCH},Darwin)  
    LIBS+=-lresolv
-@@ -48,8 +49,13 @@ ifeq (${OSARCH},Darwin)  
+@@ -48,13 +49,22 @@ ifeq (${OSARCH},Darwin)  
    MKTEMP=/usr/bin/mktemp
  else
    #These are used for all but Darwin
@@ -20,13 +20,24 @@ Index: Makefile
 +  LIBS+=-pthread -lcrypto
 +  MKTEMP=/usr/bin/mktemp
 +else
++ifeq (${OSARCH},IABSD)
++  LIBS+=-pthread -lcrypto
++  MKTEMP=/usr/bin/mktemp
++else
    LIBS+=-ldl -pthread
 +  MKTEMP=/bin/mktemp
 +endif
++endif
    ASTLINK=-Wl,-E
    SOLINK=-shared -Xlinker -x
-   LOGDIR=/var/log/asterisk   
-@@ -137,7 +143,7 @@ certificate:
+-  LOGDIR=/var/log/asterisk   
++  LOGDIR=/var/log/asterisk
+   CERTDIR := /var/lib/asterisk/certs
+-  MKTEMP=/bin/mktemp
+ endif
+ 
+ MODDIR := $(LIBDIR)/modules
+@@ -137,7 +147,7 @@ certificate:
  	fi
  
  

@@ -1,6 +1,15 @@
 Index: INSTALL
 --- INSTALL.orig
 +++ INSTALL
+@@ -50,7 +50,7 @@ DragonFly|*BSD)
+ 	esac
+ 	echo "* Running on" `uname`", adjusting linker flags"
+ 	case `uname` in
+-	OpenBSD)
++	OpenBSD|IABSD)
+ 		echo "LDFLAGS='-L/usr/X11R6/lib -pthread'" >> $PLAN9/config
+ 		;;
+ 	NetBSD)
 @@ -113,7 +113,7 @@ fi
  if [ `uname` != Darwin ]; then
  	# Determine whether fontsrv X11 files are available.
@@ -16,12 +25,12 @@ Index: INSTALL
  	echo "* Building mk..."
 -	../dist/buildmk 2>&1 | sed 's/^[+] //'
 +	../dist/buildmk 2>&1
- 
+
  	if [ ! -x ../bin/mk ]; then
  		echo "* Error: mk failed to build."
 @@ -147,7 +147,6 @@ if $dobuild; then
  	fi
- 
+
  	echo "* Building everything (be patient)..."
 -	mk clean
  	mk libs-nuke
@@ -33,4 +42,4 @@ Index: INSTALL
  fi
 -) 2>&1 | tee install.log | $awk -f $PLAN9/dist/isum.awk -v 'copy='install.sum
 +) 2>&1 | tee install.log
- 
+

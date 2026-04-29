@@ -31,6 +31,7 @@ LIB_DEPENDS +=	audio/libogg
 LIBTOOL_FLAGS =	--tag=disable-static
 
 CONFIGURE_STYLE=gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/libltdl/config
 CONFIGURE_ARGS= --disable-nls \
 		--disable-optimise \
 		--disable-doxygen_doc \

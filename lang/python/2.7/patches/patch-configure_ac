@@ -33,3 +33,50 @@ Index: configure.ac
  		;;
  	  esac
  	  INSTSONAME="$LDLIBRARY".$SOVERSION
+--- configure.ac.orig	Tue Jun 23 23:58:08 2026
++++ configure.ac	Tue Jun 23 23:58:08 2026
+@@ -417,7 +417,7 @@
+     # As this has a different meaning on Linux, only define it on OpenBSD
+     AC_DEFINE(_BSD_SOURCE, 1, [Define on OpenBSD to activate all library features])
+     ;;
+-  OpenBSD/*)
++  OpenBSD/*|IABSD/*)
+     # OpenBSD undoes our definition of __BSD_VISIBLE if _XOPEN_SOURCE is
+     # also defined. This can be overridden by defining _BSD_SOURCE
+     # As this has a different meaning on Linux, only define it on OpenBSD
+@@ -923,7 +923,7 @@
+ 	  RUNSHARED=LD_LIBRARY_PATH=`pwd`${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+ 	  INSTSONAME="$LDLIBRARY".$SOVERSION
+           ;;
+-    Linux*|GNU*|NetBSD*|FreeBSD*|DragonFly*|OpenBSD*)
++    Linux*|GNU*|NetBSD*|FreeBSD*|DragonFly*|OpenBSD*|IABSD*)
+ 	  LDLIBRARY='libpython$(VERSION).so'
+ 	  BLDLIBRARY='-L. -lpython$(VERSION)'
+ 	  RUNSHARED=LD_LIBRARY_PATH=`pwd`${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+@@ -2254,7 +2254,7 @@
+ 		else
+ 			LDSHARED="ld -Bshareable"
+ 		fi;;
+-	OpenBSD*)
++	OpenBSD*|IABSD*)
+ 		if [[ "`$CC -dM -E - </dev/null | grep __ELF__`" != "" ]]
+ 		then
+ 				LDSHARED='$(CC) -shared $(CCSHARED)'
+@@ -2314,7 +2314,7 @@
+ 		 fi;;
+ 	Linux*|GNU*) CCSHARED="-fPIC";;
+ 	BSD/OS*/4*) CCSHARED="-fpic";;
+-	FreeBSD*|NetBSD*|OpenBSD*|DragonFly*) CCSHARED="-fPIC";;
++	FreeBSD*|NetBSD*|OpenBSD*|IABSD*|DragonFly*) CCSHARED="-fPIC";;
+ 	OpenUNIX*|UnixWare*)
+ 		if test "$GCC" = "yes"
+ 		then CCSHARED="-fPIC"
+@@ -2364,7 +2364,7 @@
+ 	OpenUNIX*|UnixWare*) LINKFORSHARED="-Wl,-Bexport";;
+ 	SCO_SV*) LINKFORSHARED="-Wl,-Bexport";;
+ 	ReliantUNIX*) LINKFORSHARED="-W1 -Blargedynsym";;
+-	FreeBSD*|NetBSD*|OpenBSD*|DragonFly*) 
++	FreeBSD*|NetBSD*|OpenBSD*|IABSD*|DragonFly*) 
+ 		if [[ "`$CC -dM -E - </dev/null | grep __ELF__`" != "" ]]
+ 		then
+ 			LINKFORSHARED="-Wl,--export-dynamic"

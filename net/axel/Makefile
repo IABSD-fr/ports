@@ -17,7 +17,7 @@ WANTLIB += c crypto pthread ssl
 USE_GMAKE=	Yes
 
 CONFIGURE_STYLE=gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 BUILD_DEPENDS=	devel/gettext,-tools
 
 COMPILER=	base-clang ports-gcc

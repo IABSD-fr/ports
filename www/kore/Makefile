@@ -50,7 +50,7 @@ LIB_DEPENDS +=	databases/postgresql,-main
 
 USE_GMAKE =	Yes
 
-MAKE_ENV +=	CC="${CC}" TASKS=1
+MAKE_ENV +=	CC="${CC}" TASKS=1 OSNAME=openbsd KORE_BUILD_FLAVOR=openbsd
 
 FAKE_FLAGS =	DESTDIR=
 

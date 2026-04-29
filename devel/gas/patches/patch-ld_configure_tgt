@@ -1,0 +1,13 @@
+Add IABSD target to ld configure.
+
+Index: ld/configure.tgt
+--- ld/configure.tgt.orig
++++ ld/configure.tgt
+@@ -958,6 +958,6 @@
+			targ_extra_libpath=elf_i386_sol2
+			targ_extra_emuls="elf_x86_64 elf_i386"
+			;;
+-x86_64-*-netbsd* | x86_64-*-openbsd*)
++x86_64-*-netbsd* | x86_64-*-openbsd* | x86_64-*-iabsd*)
+			targ_emul=elf_x86_64
+			targ_extra_emuls="elf_i386"

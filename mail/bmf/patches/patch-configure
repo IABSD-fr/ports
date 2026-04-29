@@ -17,3 +17,31 @@
      LDFLAGS="$LDDBG"
      SYSLIBS=""
      LIBDB_LIB=""
+@@ -162,5 +162,27 @@ case "$UNAME_S" in
+     MYSQL_LIB="-lmysqlclient"
+     ;;
++  IABSD)
++    # IABSD is an OpenBSD fork, same as OpenBSD
++    OSVER=40
++    if [ "$with_debug" = "yes" ]; then
++      CCDBG="-g"
++      LDDBG="-g"
++    else
++      CCDBG="-DNDEBUG"
++      LDDBG=""
++    fi
++    CC=cc
++    CFLAGS="$CCDBG -D_UNIX -D_BSD=$OSVER -Wall"
++    CXX=c++
++    CXXFLAGS=${CFLAGS}
++    AR=ar
++    ARFLAGS="-rc"
++    LD=cc
++    LDFLAGS="$LDDBG"
++    SYSLIBS=""
++    LIBDB_LIB=""
++    MYSQL_LIB="-lmysqlclient"
++    ;;
+   Darwin)
+     # I'm guessing Darwin looks mostly like FreeBSD 4.x
+     OSVER=40

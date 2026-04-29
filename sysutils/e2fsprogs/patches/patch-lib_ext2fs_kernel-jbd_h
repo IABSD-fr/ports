@@ -1,0 +1,17 @@
+Checksum-v2 tags have 10- or 14-byte strides, so successive tags may
+not be aligned for 32-bit access.  Make their on-disk type packed so
+debugfs journal writing and logdump work on strict-alignment machines.
+The tag size and on-disk layout are unchanged.
+
+Index: lib/ext2fs/kernel-jbd.h
+--- lib/ext2fs/kernel-jbd.h.orig
++++ lib/ext2fs/kernel-jbd.h
+@@ -150,7 +150,7 @@ typedef struct journal_block_tag_s
+ 	__be16		t_checksum;	/* truncated crc32c(uuid+seq+block) */
+ 	__be16		t_flags;	/* See below */
+ 	__be32		t_blocknr_high; /* most-significant high 32bits. */
+-} journal_block_tag_t;
++} __attribute__((__packed__)) journal_block_tag_t;
+ 
+ /* Tail of descriptor or revoke block, for checksumming */
+ struct jbd2_journal_block_tail {

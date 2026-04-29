@@ -1,0 +1,12 @@
+--- autosetup/autosetup-config.guess.orig	Mon Apr 28 10:00:00 2026
++++ autosetup/autosetup-config.guess	Mon Apr 28 10:00:00 2026
+@@ -280,6 +280,10 @@
+ 	UNAME_MACHINE_ARCH=`arch | sed 's/OpenBSD.//'`
+ 	GUESS=$UNAME_MACHINE_ARCH-unknown-openbsd$UNAME_RELEASE
+ 	;;
++    *:IABSD:*:*)
++	UNAME_MACHINE_ARCH=`arch | sed 's/IABSD.//'`
++	GUESS=$UNAME_MACHINE_ARCH-unknown-iabsd$UNAME_RELEASE
++	;;
+     *:SecBSD:*:*)
+ 	UNAME_MACHINE_ARCH=`arch | sed 's/SecBSD.//'`

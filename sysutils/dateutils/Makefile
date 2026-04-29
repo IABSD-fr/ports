@@ -15,7 +15,7 @@ SITES=		https://bitbucket.org/hroptatyr/dateutils/downloads/
 EXTRACT_SUFX=	.tar.xz
 
 CONFIGURE_STYLE=gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 # uses wordexp
 NO_TEST=	Yes
 

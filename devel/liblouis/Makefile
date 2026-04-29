@@ -28,7 +28,7 @@ BUILD_DEPENDS=	devel/help2man
 RUN_DEPENDS +=	shells/bash
 
 CONFIGURE_STYLE=gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=	--with-packager="OpenBSD Ports" \
 		--enable-ucs4 \
 		--without-yaml

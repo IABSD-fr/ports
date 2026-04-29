@@ -14,7 +14,7 @@ COMPILER=	base-clang ports-gcc base-gcc
 
 SITES=		${SITE_GNU:=gengetopt/}
 
-CONFIGURE_STYLE= gnu
+CONFIGURE_STYLE=	gnu
 USE_GMAKE=	Yes
-
+MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC} ${WRKSRC}/build-aux
 .include <bsd.port.mk>

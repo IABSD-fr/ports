@@ -20,6 +20,7 @@ LIB_DEPENDS=		archivers/xz \
 			archivers/bzip2
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC} ${WRKSRC}/config.aux
 CONFIGURE_ENV=		CPPFLAGS=-I${LOCALBASE}/include LDFLAGS=-L${LOCALBASE}/lib
 
 post-install:

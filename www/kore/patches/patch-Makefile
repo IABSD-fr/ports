@@ -1,6 +1,6 @@
 GCC 4.2.1 doesn't recognize the "-Wtype-limits" option.
 
-Also drop -Werror
+Also drop -Werror and allow OSNAME override for IABSD.
 
 Index: Makefile
 --- Makefile.orig
@@ -17,7 +17,7 @@ Index: Makefile
 @@ -31,10 +31,10 @@ S_SRC+= src/tls_$(TLS_BACKEND).c
  FEATURES=
  FEATURES_INC=
- 
+
 -CFLAGS+=-Wall -Werror -Wstrict-prototypes -Wmissing-prototypes
 +CFLAGS+=-Wall -Wstrict-prototypes -Wmissing-prototypes
  CFLAGS+=-Wmissing-declarations -Wshadow -Wpointer-arith -Wcast-qual
@@ -25,14 +25,23 @@ Index: Makefile
 -CFLAGS+=-Wtype-limits -fno-common
 +CFLAGS+=-fno-common
  CFLAGS+=-DPREFIX='"$(PREFIX)"' -fstack-protector-all
- 
+
  LDFLAGS+=-rdynamic
 @@ -68,8 +68,6 @@ endif
- 
+
  ifneq ("$(NOOPT)", "")
  	CFLAGS+=-O0
 -else
 -	CFLAGS+=-O2
  endif
- 
+
  ifneq ("$(NOSENDFILE)", "")
+@@ -118,7 +116,7 @@
+ 	FEATURES_INC+=$(KORE_PYTHON_INC)
+ endif
+
+-OSNAME=$(shell uname -s | sed -e 's/[-_].*//g' | tr A-Z a-z)
++OSNAME?=$(shell uname -s | sed -e 's/[-_].*//g' | tr A-Z a-z)
+ ifeq ("$(OSNAME)", "freebsd")
+ 	KORE_CURL_LIB=-L/usr/local/lib -lcurl
+ 	KORE_CURL_INC=-I/usr/local/include

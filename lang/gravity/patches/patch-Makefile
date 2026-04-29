@@ -1,0 +1,14 @@
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -29,6 +29,10 @@ else ifeq ($(UNAME_S),OpenBSD)
+ 		# OpenBSD
+ 		LIBTARGET = libgravity.so
+ 		LDFLAGS = -lm
++	else ifeq ($(UNAME_S),IABSD)
++		# IABSD
++		LIBTARGET = libgravity.so
++		LDFLAGS = -lm
+ 	else ifeq ($(UNAME_S),FreeBSD)
+ 		# FreeBSD
+ 		LIBTARGET = libgravity.so

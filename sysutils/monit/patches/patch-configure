@@ -1,0 +1,14 @@
+Add IABSD support.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -21023,7 +21023,7 @@
+    ARCH="LINUX"
+    CFLAGS="$CFLAGS -D _REENTRANT"
+    LDFLAGS="$LDFLAGS -rdynamic"
+-elif test "$architecture" = "OpenBSD"
++elif test "$architecture" = "OpenBSD" -o "$architecture" = "IABSD"
+ then
+    ARCH="OPENBSD"
+    CFLAGS="$CFLAGS -D _REENTRANT"

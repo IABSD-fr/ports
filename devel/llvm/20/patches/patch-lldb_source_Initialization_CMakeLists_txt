@@ -1,0 +1,8 @@
+Index: lldb/source/Initialization/CMakeLists.txt
+--- lldb/source/Initialization/CMakeLists.txt.orig
++++ lldb/source/Initialization/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-if ( CMAKE_SYSTEM_NAME MATCHES "Linux|Android|FreeBSD|NetBSD|OpenBSD" )
++if ( CMAKE_SYSTEM_NAME MATCHES "Linux|Android|FreeBSD|NetBSD|OpenBSD|IABSD" )
+   list(APPEND EXTRA_PLUGINS lldbPluginProcessPOSIX)
+ endif()

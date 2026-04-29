@@ -23,7 +23,9 @@ WANTLIB=	c iconv intl pcre2-8 pthread
 CONFIGURE_STYLE=gnu
 CONFIGURE_ARGS=	--program-prefix=g
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
-		LDFLAGS="-L${LOCALBASE}/lib"
+		LDFLAGS="-L${LOCALBASE}/lib" \
+		MAKEINFO=true
+MAKE_FLAGS=	SUBDIRS="lib src doc po" AM_MAKEINFOHTMLFLAGS=true MAKEINFO=true
 # Tries to use libsigsegv for SEGV-based stack overflow detection heuristic
 # in absence of the corresponding XSI behavior.  Let's try without.
 CONFIGURE_ENV+= ac_cv_libsigsegv=no

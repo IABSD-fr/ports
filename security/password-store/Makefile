@@ -30,6 +30,9 @@ FAKE_FLAGS =	PREFIX=${PREFIX} MANDIR=${PREFIX}/man \
 
 NO_BUILD =	Yes
 
+post-extract:
+	cp ${WRKSRC}/src/platform/openbsd.sh ${WRKSRC}/src/platform/iabsd.sh
+
 post-install:
 		${INSTALL_DATA_DIR} \
 			${PREFIX}/share/{examples,doc}/password-store

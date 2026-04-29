@@ -27,6 +27,7 @@ MAKE_FLAGS+= ${_lt_libs}
 USE_LIBTOOL=	No
 
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/libltdl/config
 CONFIGURE_ENV=	GREP=/usr/bin/grep \
 		LD=ld \
 		ac_cv_f77_compiler_gnu=yes \

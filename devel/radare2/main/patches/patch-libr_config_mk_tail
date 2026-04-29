@@ -1,0 +1,13 @@
+Index: libr/config.mk.tail
+--- libr/config.mk.tail.orig
++++ libr/config.mk.tail
+@@ -76,6 +76,9 @@ endif
+ ifeq (${OSTYPE},openbsd)
+ OSTYPE=bsd
+ endif
++ifeq (${OSTYPE},iabsd)
++OSTYPE=bsd
++endif
+ ifeq (${OSTYPE},netbsd)
+ OSTYPE=bsd
+ endif

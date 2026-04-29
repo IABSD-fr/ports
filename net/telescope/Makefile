@@ -21,5 +21,5 @@ SITES = 	https://ftp.telescope-browser.org/ \
 		https://github.com/telescope-browser/telescope/releases/download/${V}/
 
 CONFIGURE_STYLE =	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/etc
 .include <bsd.port.mk>

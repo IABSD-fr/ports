@@ -1,0 +1,13 @@
+Skip Boost version matching on IABSD like OpenBSD.
+
+Index: mesonbuild/dependencies/boost.py
+--- mesonbuild/dependencies/boost.py.orig
++++ mesonbuild/dependencies/boost.py
+@@ -619,7 +619,7 @@
+         # mlog.debug('    - vscrt: {}'.format(vscrt))
+         libs = [x for x in libs if x.static == self.static or not self.explicit_static]
+         libs = [x for x in libs if x.mt == self.multithreading]
+-        if not self.env.machines[self.for_machine].is_openbsd():
++        if not (self.env.machines[self.for_machine].is_openbsd() or self.env.machines[self.for_machine].is_iabsd()):
+             libs = [x for x in libs if x.version_matches(lib_vers)]
+         libs = [x for x in libs if x.arch_matches(self.arch)]

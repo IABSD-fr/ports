@@ -1,0 +1,14 @@
+Recognize IABSD for libc++ default stdlib.
+
+Index: src/llvm-project/compiler-rt/CMakeLists.txt
+--- src/llvm-project/compiler-rt/CMakeLists.txt.orig
++++ src/llvm-project/compiler-rt/CMakeLists.txt
+@@ -223,7 +223,7 @@
+     set(${var}_LIBNAME "${CMAKE_MATCH_1}")
+     set(${var}_SYSTEM 1)
+   elseif (${var} STREQUAL "default")
+-    if (APPLE OR CMAKE_SYSTEM_NAME MATCHES "FreeBSD" OR CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
++    if (APPLE OR CMAKE_SYSTEM_NAME MATCHES "FreeBSD|OpenBSD|IABSD")
+       set(${var}_LIBNAME "libc++")
+       set(${var}_SYSTEM 1)
+     elseif (FUCHSIA)

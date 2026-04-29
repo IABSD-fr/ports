@@ -26,6 +26,7 @@ MODPY_ADJ_FILES = do_auth.py
 BUILD_DEPENDS =	devel/bison
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--with-libwrap=no \
 			--with-acctfile=/var/log/tac_plus/tac.acct \
 			--with-logfile=var/log/tac_plus/tac.log \

@@ -47,7 +47,7 @@ USE_GMAKE=		Yes
 
 WRKSRC=			${WRKDIST}/nss
 NSSDIST=		${WRKDIST}/dist
-NSSOBJ=			${NSSDIST}/OpenBSD`uname -r`${OBJ64}_${OBJTYPE}.OBJ
+NSSOBJ=			${NSSDIST}/IABSD`uname -r`${OBJ64}_${OBJTYPE}.OBJ
 
 ALL_TARGET=		nss_build_all
 SUBST_VARS +=		VERSION NSPR_VERSION
@@ -85,5 +85,10 @@ do-test:
 MAKE_ENV+=		USE_64=1
 OBJ64=			_64
 .endif
+
+pre-configure:
+	cp ${WRKDIST}/nss/coreconf/OpenBSD.mk ${WRKDIST}/nss/coreconf/IABSD.mk
+	touch ${WRKDIST}/nss/coreconf/IABSD0.1.mk
+	sed -i 's/TARGET_OSES = /TARGET_OSES = IABSD /' ${WRKDIST}/nss/coreconf/config.mk
 
 .include <bsd.port.mk>

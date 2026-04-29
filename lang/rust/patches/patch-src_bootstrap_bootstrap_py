@@ -1,15 +1,26 @@
-Workaround for sparc64: bootstrap segfaults without -O3
+Add IABSD support and sparc64 workaround.
 
 Index: src/bootstrap/bootstrap.py
 --- src/bootstrap/bootstrap.py.orig
 +++ src/bootstrap/bootstrap.py
-@@ -1146,6 +1146,9 @@ class RustBuild(object):
+@@ -327,6 +327,7 @@
+         "Haiku": "unknown-haiku",
+         "NetBSD": "unknown-netbsd",
+         "OpenBSD": "unknown-openbsd",
++        "IABSD": "unknown-iabsd",
+         "GNU": "unknown-hurd",
+     }
+ 
+@@ -1145,6 +1146,12 @@
+             env.setdefault("RUSTFLAGS", "")
          else:
              env["RUSTFLAGS"] = "-Zallow-features="
- 
-+        if self.build_triple() == "sparc64-unknown-openbsd":
-+            env["RUSTFLAGS"] += " -Copt-level=3"
 +
++        if self.build_triple() in [
++            "sparc64-unknown-openbsd",
++            "sparc64-unknown-iabsd",
++        ]:
++            env["RUSTFLAGS"] += " -Copt-level=3"
+ 
          if not os.path.isfile(self.cargo()):
              raise Exception("no cargo executable found at `{}`".format(self.cargo()))
-         args = [

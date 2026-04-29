@@ -18,4 +18,7 @@ MAKE_FLAGS =		PASTHRU_DEFINE='-idirafter $${PERL_INC}'
 
 CONFIGURE_ARGS =	PANELS MENUS FORMS
 
+post-extract:
+	cp ${WRKSRC}/hints/c-openbsd.h ${WRKSRC}/hints/c-iabsd.h
+
 .include <bsd.port.mk>

@@ -14,7 +14,7 @@ WANTLIB += c crypto curl nghttp2 nghttp3 ngtcp2 ngtcp2_crypto_libressl
 WANTLIB += pthread ssl z
 
 CONFIGURE_STYLE=	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 BUILD_DEPENDS=	devel/help2man
 LIB_DEPENDS=	net/curl
 

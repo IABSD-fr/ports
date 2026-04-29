@@ -7,5 +7,17 @@
 -CFLAGS = -O2
 +CFLAGS ?= -O2
  endif
- 
+
  ifdef NO_ICONV
+@@ -47,6 +47,11 @@ ifeq ($(UNAME_S),OpenBSD)
+ 	LDFLAGS += -L/usr/local/lib
+ 	LIBS += -liconv
+ endif
++ifeq ($(UNAME_S),IABSD)
++	CFLAGS += -DICONV_CHAR="const char" -I/usr/local/include
++	LDFLAGS += -L/usr/local/lib
++	LIBS += -liconv
++endif
+ ifeq ($(UNAME_S),Darwin)
+        CFLAGS += -I/opt/local/include
+        LDFLAGS += -L/opt/local/lib

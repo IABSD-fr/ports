@@ -24,13 +24,26 @@ MAKE_FLAGS =		GMAKE_NOWARN=true CC="${CC}" CC++="${CXX}" \
 
 NO_TEST=		Yes
 
+post-extract:
+	sed 's/openbsd/iabsd/g' ${WRKSRC}/RULES/os-openbsd.id > ${WRKSRC}/RULES/os-iabsd.id
+	cd ${WRKSRC}/RULES && \
+	    for f in *openbsd*; do \
+	        nf=$$(echo $$f | sed 's/openbsd/iabsd/g'); \
+	        [ -f $$nf ] || cp $$f $$nf; \
+	    done
+	cd ${WRKSRC}/DEFAULTS && \
+	    for f in *openbsd*; do \
+	        nf=$$(echo $$f | sed 's/openbsd/iabsd/g'); \
+	        [ -f $$nf ] || cp $$f $$nf; \
+	    done
+
 .if ${MACHINE} != "i386" || ${CC} != "cc"
 do-configure:
 	cd ${WRKSRC}/RULES && \
-	    ln -sf i386-openbsd-cc.rul ${MACHINE}-openbsd-${CC}.rul
+	    ln -sf i386-iabsd-cc.rul ${MACHINE}-iabsd-${CC}.rul
 .endif
 
-OBJ=	OBJ/${MACHINE_ARCH}-openbsd-${CC}
+OBJ=	OBJ/${MACHINE_ARCH}-iabsd-${CC}
 
 do-install:
 	@cp ${WRKSRC}/mkisofs/mkisofs.8 ${WRKSRC}/mkisofs/mkisofs.1

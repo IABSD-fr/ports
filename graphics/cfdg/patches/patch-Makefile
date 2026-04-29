@@ -18,20 +18,24 @@ Index: Makefile
  
  #
  # Sources and Objects
-@@ -75,7 +74,11 @@ LIBS = png m
+@@ -75,7 +74,15 @@ LIBS = png m
  ifeq ($(shell uname -s), Darwin)
    LIBS += c++ icucore
  else
 -  LIBS += stdc++ atomic icui18n icuuc icudata
 +  ifeq ($(shell uname -s), OpenBSD)
-+    LIBS += $(LIBCXX) icui18n icuuc icudata
++    LIBS += $(COMPILER_LIBCXX) icui18n icuuc icudata
++  else
++  ifeq ($(shell uname -s), IABSD)
++    LIBS += $(COMPILER_LIBCXX) icui18n icuuc icudata
 +  else
 +    LIBS += stdc++ atomic icui18n icuuc icudata
++  endif
 +  endif
  endif
  
  #
-@@ -107,6 +110,11 @@ INC_DIRS += $(AGG_DIR) $(AGG_DIR)/agg2
+@@ -107,6 +114,11 @@ INC_DIRS += $(AGG_DIR) $(AGG_DIR)/agg2
  #
  #LIBS += agg
  
@@ -43,7 +47,7 @@ Index: Makefile
  
  OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
  DEPS = $(patsubst %.o,%.d,$(OBJS))
-@@ -196,7 +204,7 @@ check: cfdg
+@@ -196,7 +208,7 @@ check: cfdg
  #
  
  CXXFLAGS += $(patsubst %,-I%,$(INC_DIRS))

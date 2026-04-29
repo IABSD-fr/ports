@@ -39,6 +39,7 @@ COMPILER=		base-clang ports-gcc base-gcc
 COMPILER_LANGS=		c
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/config
 
 CONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include" \
 			LIBS="-L${LOCALBASE}/lib" \

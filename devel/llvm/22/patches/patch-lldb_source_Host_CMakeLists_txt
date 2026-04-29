@@ -1,0 +1,12 @@
+Index: lldb/source/Host/CMakeLists.txt
+--- lldb/source/Host/CMakeLists.txt.orig
++++ lldb/source/Host/CMakeLists.txt
+@@ -135,7 +135,7 @@
+       netbsd/HostInfoNetBSD.cpp
+       )
+
+-  elseif (CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
++  elseif (CMAKE_SYSTEM_NAME MATCHES "OpenBSD|IABSD")
+     add_host_subdirectory(openbsd
+       openbsd/Host.cpp
+       openbsd/HostInfoOpenBSD.cpp

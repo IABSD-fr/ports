@@ -39,10 +39,14 @@ LIB_DEPENDS =	devel/epoll-shim \
 		sysutils/libudev-openbsd
 
 CONFIGURE_ARGS =	-Dlibwacom=false \
-			-Ddocumentation=false
+			-Ddocumentation=false \
+			-Ddebug-gui=false
 
 # XXX debugging
 CFLAGS =		-O0 -g
+
+post-patch:
+	sed -i "s/host_machine.system() != 'openbsd' and host_machine.system() != 'netbsd'/host_machine.system() != 'openbsd' and host_machine.system() != 'iabsd' and host_machine.system() != 'netbsd'/g" ${WRKSRC}/meson.build
 
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
 

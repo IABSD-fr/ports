@@ -1,0 +1,43 @@
+Add IABSD support to redis OS detection.
+
+Index: src/Makefile
+--- src/Makefile.orig
++++ src/Makefile
+@@ -143,7 +143,17 @@
+ 	    FINAL_LIBS+= -lexecinfo
+     	endif
+
++
+ else
++ifeq ($(uname_S),IABSD)
++	# IABSD
++	FINAL_LIBS+= -lpthread
++	ifeq ($(USE_BACKTRACE),yes)
++	    FINAL_CFLAGS+= -DUSE_BACKTRACE -I/usr/local/include
++	    FINAL_LDFLAGS+= -L/usr/local/lib
++	    FINAL_LIBS+= -lexecinfo
++    	endif
++else
+ ifeq ($(uname_S),NetBSD)
+ 	# NetBSD
+ 	FINAL_LIBS+= -lpthread
+@@ -161,6 +171,10 @@
+ 	# DragonFly
+ 	FINAL_LIBS+= -lpthread -lexecinfo
+ else
++ifeq ($(uname_S),IABSD)
++	# IABSD
++	FINAL_LIBS+= -lpthread -lexecinfo
++else
+ ifeq ($(uname_S),OpenBSD)
+ 	# OpenBSD
+ 	FINAL_LIBS+= -lpthread -lexecinfo
+@@ -178,6 +192,8 @@
+ 	# All the other OSes (notably Linux)
+ 	FINAL_LDFLAGS+= -rdynamic
+ 	FINAL_LIBS+=-ldl -pthread -lrt
++endif
++endif
+ endif
+ endif
+ endif

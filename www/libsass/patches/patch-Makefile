@@ -1,0 +1,16 @@
+Skip -ldl on IABSD like on OpenBSD.
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -117,8 +117,10 @@
+ ifneq (Windows,$(UNAME))
+ 	ifneq (FreeBSD,$(UNAME))
+ 		ifneq (OpenBSD,$(UNAME))
++		ifneq (IABSD,$(UNAME))
+ 			LDFLAGS += -ldl
+ 			LDLIBS += -ldl
+ 		endif
++		endif
+ 	endif
+ endif

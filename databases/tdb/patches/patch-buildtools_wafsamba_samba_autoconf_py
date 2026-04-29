@@ -1,0 +1,14 @@
+Skip -Wl,-no-undefined on IABSD like on OpenBSD.
+
+Index: buildtools/wafsamba/samba_autoconf.py
+--- buildtools/wafsamba/samba_autoconf.py.orig
++++ buildtools/wafsamba/samba_autoconf.py
+@@ -1029,7 +1029,8 @@
+         return
+
+-    if not sys.platform.startswith("openbsd"):
++    if (not sys.platform.startswith("openbsd") and
++        not sys.platform.startswith("iabsd")):
+         # we don't want any libraries or modules to rely on runtime
+         # resolution of symbols
+         conf.env.undefined_ldflags = conf.ADD_LDFLAGS('-Wl,-no-undefined', testflags=True)

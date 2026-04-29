@@ -1,0 +1,14 @@
+Map IABSD platform to openbsd flavor in gyp.
+
+Index: tools/gyp/pylib/gyp/common.py
+--- tools/gyp/pylib/gyp/common.py.orig
++++ tools/gyp/pylib/gyp/common.py
+@@ -496,7 +496,7 @@
+         return "solaris"
+     if sys.platform.startswith(("dragonfly", "freebsd")):
+         return "freebsd"
+-    if sys.platform.startswith("openbsd"):
++    if sys.platform.startswith(("openbsd", "iabsd")):
+         return "openbsd"
+     if sys.platform.startswith("netbsd"):
+         return "netbsd"

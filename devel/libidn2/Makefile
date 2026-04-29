@@ -23,4 +23,8 @@ CONFIGURE_ARGS=	--disable-nls \
 		gl_cv_warn_c__fdiagnostics_color_always=no
 MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/build-aux
 
+post-configure:
+	touch ${WRKSRC}/doc/Makefile.gdoc
+	touch ${WRKSRC}/doc/Makefile.in
+
 .include <bsd.port.mk>
