@@ -48,6 +48,7 @@ USE_GMAKE=		Yes
 PORTHOME=		${WRKDIR}
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 
 CONFIGURE_ARGS=		--disable-ssl3-support \
 			--disable-valgrind-tests \

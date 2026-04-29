@@ -13,6 +13,7 @@ PERMIT_PACKAGE=	Yes
 WANTLIB=	c pthread
 
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=	--program-prefix="g" \
 		--disable-nls \
 		--without-libiconv-prefix

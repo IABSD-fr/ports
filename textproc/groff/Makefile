@@ -26,6 +26,7 @@ MAKE_FLAGS +=		docdir=${PREFIX}/share/doc/groff \
 
 MODULES =		perl
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS +=	--with-awk=awk --without-gs \
 			--without-libiconv-prefix --without-uchardet \
 			--without-urw-fonts-dir --without-x \

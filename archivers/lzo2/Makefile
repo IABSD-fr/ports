@@ -17,6 +17,7 @@ PERMIT_PACKAGE=	Yes
 
 SEPARATE_BUILD=	Yes
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/autoconf
 CONFIGURE_ARGS+= --enable-static \
 		--docdir=${PREFIX}/share/doc/lzo2/
 

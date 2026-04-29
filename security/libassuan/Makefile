@@ -22,5 +22,6 @@ EXTRACT_SUFX=		.tar.bz2
 LIB_DEPENDS=		security/libgpg-error
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 
 .include <bsd.port.mk>

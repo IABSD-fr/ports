@@ -29,6 +29,7 @@ AUTOCONF_VERSION= 2.69
 AUTOMAKE_VERSION= 1.13
 CONFIGURE_STYLE= autoreconf
 CONFIGURE_ARGS=	--enable-replace_rules
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/opendkim/

@@ -48,6 +48,8 @@ TEST_TARGET =	test-all test-spec TESTOPTS="-v -q"
 
 post-extract:
 	${POST_EXTRACT}
+	cp ${PORTSDIR}/infrastructure/db/config.guess ${WRKSRC}/tool/config.guess
+	cp ${PORTSDIR}/infrastructure/db/config.sub ${WRKSRC}/tool/config.sub
 
 pre-configure:
 	${FIX_RIPPER}

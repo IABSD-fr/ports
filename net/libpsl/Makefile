@@ -30,6 +30,7 @@ LIB_DEPENDS =		converters/libunistring \
 			devel/libidn2
 
 CONFIGURE_STYLE = gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 
 CONFIGURE_ARGS +=	--enable-builtin=libidn2 \
 			--enable-runtime=libidn2
