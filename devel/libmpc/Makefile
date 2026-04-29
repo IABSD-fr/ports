@@ -18,6 +18,7 @@ LIB_DEPENDS=		devel/mpfr \
 WANTLIB=		gmp m mpfr
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=		--with-mpfr=${LOCALBASE} \
 			--with-gmp=${LOCALBASE}
 

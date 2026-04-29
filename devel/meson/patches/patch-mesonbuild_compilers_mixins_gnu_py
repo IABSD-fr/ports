@@ -1,0 +1,14 @@
+Disable b_lundef on IABSD like on OpenBSD.
+
+Index: mesonbuild/compilers/mixins/gnu.py
+--- mesonbuild/compilers/mixins/gnu.py.orig
++++ mesonbuild/compilers/mixins/gnu.py
+@@ -362,7 +362,7 @@
+         self.base_options = {
+             OptionKey(o) for o in ['b_pch', 'b_lto', 'b_pgo', 'b_coverage',
+                                    'b_ndebug', 'b_staticpic', 'b_pie']}
+-        if not (self.info.is_windows() or self.info.is_cygwin() or self.info.is_openbsd()):
++        if not (self.info.is_windows() or self.info.is_cygwin() or self.info.is_openbsd() or self.info.is_iabsd()):
+             self.base_options.add(OptionKey('b_lundef'))
+         if not self.info.is_windows() or self.info.is_cygwin():
+             self.base_options.add(OptionKey('b_asneeded'))

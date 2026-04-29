@@ -50,4 +50,7 @@ post-install:
 	cd ${WRKDIST} && ${INSTALL_DATA} README README.PlexDAE \
 	    ${PREFIX}/share/doc/cdrdao
 
+post-extract:
+	cp ${WRKSRC}/scsilib/RULES/os-openbsd.id ${WRKSRC}/scsilib/RULES/os-iabsd.id
+
 .include <bsd.port.mk>

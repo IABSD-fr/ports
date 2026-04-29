@@ -79,11 +79,11 @@ SUPDISTFILES.bsp +=	${BOOTSTRAP-$m}
 .endfor
 
 # per MACHINE_ARCH configuration
-TRIPLE_ARCH-aarch64 =	aarch64-unknown-openbsd
-TRIPLE_ARCH-amd64 =	x86_64-unknown-openbsd
-TRIPLE_ARCH-powerpc64 =	powerpc64-unknown-openbsd
-TRIPLE_ARCH-riscv64 =	riscv64gc-unknown-openbsd
-TRIPLE_ARCH-sparc64 =	sparc64-unknown-openbsd
+TRIPLE_ARCH-aarch64 =	aarch64-unknown-iabsd
+TRIPLE_ARCH-amd64 =	x86_64-unknown-iabsd
+TRIPLE_ARCH-powerpc64 =	powerpc64-unknown-iabsd
+TRIPLE_ARCH-riscv64 =	riscv64gc-unknown-iabsd
+TRIPLE_ARCH-sparc64 =	sparc64-unknown-iabsd
 TRIPLE_ARCH =	${TRIPLE_ARCH-${MACHINE_ARCH}}
 
 # one of "base", "embedded", "ports"
@@ -128,6 +128,23 @@ LIBRUST_REHASH +=	std_detect
 LIBRUST_REHASH +=	sysroot
 LIBRUST_REHASH +=	test
 LIBRUST_REHASH +=	unwind
+LIBRUST_REHASH +=	darling_macro
+LIBRUST_REHASH +=	derive_setters
+LIBRUST_REHASH +=	derive_where
+LIBRUST_REHASH +=	displaydoc
+LIBRUST_REHASH +=	proc_macro_hack
+LIBRUST_REHASH +=	ref_cast_impl
+LIBRUST_REHASH +=	rustc_index_macros
+LIBRUST_REHASH +=	rustc_macros
+LIBRUST_REHASH +=	rustc_type_ir_macros
+LIBRUST_REHASH +=	schemars_derive
+LIBRUST_REHASH +=	serde_derive
+LIBRUST_REHASH +=	thiserror_impl
+LIBRUST_REHASH +=	tracing_attributes
+LIBRUST_REHASH +=	unic_langid_macros_impl
+LIBRUST_REHASH +=	yoke_derive
+LIBRUST_REHASH +=	zerofrom_derive
+LIBRUST_REHASH +=	zerovec_derive
 
 # generate a stable hash and pass it to build environment
 LIBRUST_HASH !=	echo '${PKGNAME}:${REVISION}:${TRIPLE_ARCH}' | sha1 | cut -c1-14
@@ -202,12 +219,23 @@ TEST_DEPENDS +=		devel/git \
 # - disable vendor checksum checks
 # - patch openssl-sys using sed
 post-patch:
+	for _f in $$(find ${WRKSRC} -name config.guess); do \
+		cp ${PORTSDIR}/infrastructure/db/config.guess $$_f; \
+	done
+	cp ${WRKSRC}/compiler/rustc_target/src/spec/targets/x86_64_unknown_openbsd.rs \
+		${WRKSRC}/compiler/rustc_target/src/spec/targets/x86_64_unknown_iabsd.rs
+	sed -i 's/x86_64-unknown-openbsd/x86_64-unknown-iabsd/g; s/64-bit OpenBSD/64-bit IABSD/g' \
+		${WRKSRC}/compiler/rustc_target/src/spec/targets/x86_64_unknown_iabsd.rs
 	sed -i 's/"files":{[^}]*}/"files":{}/' \
 		${WRKSRC}/vendor/*/.cargo-checksum.json
 	sed -i -e "/ => ('.', '.'),/h" \
 		-e "/ => ('.', '.', '.'),/h" \
 		-e "/_ => version_error(),/{g; s/(.*) =>/_ =>/; }" \
 		"${WRKSRC}/vendor/openssl-sys"*"/build/main.rs"
+	sed -i 's/if host == target/if (host == target || (host.contains("openbsd") \&\& target.contains("iabsd")))/' \
+		"${WRKSRC}/vendor/openssl-sys"*"/build/find_normal.rs"
+	sed -i 's/target.contains("openbsd") || target.contains("aix")/target.contains("openbsd") || target.contains("iabsd") || target.contains("aix")/' \
+		"${WRKSRC}/vendor/openssl-sys"*"/build/find_normal.rs"
 
 # - check datasize limit before configuring (and building)
 pre-configure:

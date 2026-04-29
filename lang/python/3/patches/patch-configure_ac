@@ -61,3 +61,59 @@ Index: configure.ac
  ; do
    PKG_CHECK_EXISTS([$_QUERY], [
      PKG_CHECK_MODULES([TCLTK], [$_QUERY], [found_tcltk=yes], [found_tcltk=no])
+--- configure.ac.orig	Wed Jun 24 00:04:02 2026
++++ configure.ac	Wed Jun 24 00:04:15 2026
+@@ -844,7 +844,7 @@
+     AC_DEFINE([_BSD_SOURCE], [1],
+               [Define on OpenBSD to activate all library features])
+     ;;
+-  OpenBSD/*)
++  OpenBSD/*|IABSD/*)
+     # OpenBSD undoes our definition of __BSD_VISIBLE if _XOPEN_SOURCE is
+     # also defined. This can be overridden by defining _BSD_SOURCE
+     # As this has a different meaning on Linux, only define it on OpenBSD
+@@ -1577,7 +1577,7 @@
+         PY3LIBRARY=libpython3.so
+       fi
+       ;;
+-    Linux*|GNU*|NetBSD*|FreeBSD*|DragonFly*|OpenBSD*|VxWorks*)
++    Linux*|GNU*|NetBSD*|FreeBSD*|DragonFly*|OpenBSD*|IABSD*|VxWorks*)
+       LDLIBRARY='libpython$(LDVERSION).so'
+       BLDLIBRARY='-L. -lpython$(LDVERSION)'
+       RUNSHARED=LD_LIBRARY_PATH=`pwd`${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+@@ -3499,7 +3499,7 @@
+ 		else
+ 			LDSHARED="ld -Bshareable"
+ 		fi;;
+-	OpenBSD*)
++	OpenBSD*|IABSD*)
+ 		if [[ "`$CC -dM -E - </dev/null | grep __ELF__`" != "" ]]
+ 		then
+ 				LDSHARED='$(CC) -shared $(CCSHARED)'
+@@ -3574,7 +3574,7 @@
+ 		AS_VAR_IF([enable_wasm_dynamic_linking], [yes], [
+ 			CCSHARED="-fPIC"
+ 		]);;
+-	FreeBSD*|NetBSD*|OpenBSD*|DragonFly*) CCSHARED="-fPIC";;
++	FreeBSD*|NetBSD*|OpenBSD*|IABSD*|DragonFly*) CCSHARED="-fPIC";;
+ 	Haiku*) CCSHARED="-fPIC";;
+ 	OpenUNIX*|UnixWare*)
+ 		if test "$ac_cv_gcc_compat" = "yes"
+@@ -3635,7 +3635,7 @@
+ 	OpenUNIX*|UnixWare*) LINKFORSHARED="-Wl,-Bexport";;
+ 	SCO_SV*) LINKFORSHARED="-Wl,-Bexport";;
+ 	ReliantUNIX*) LINKFORSHARED="-W1 -Blargedynsym";;
+-	FreeBSD*|NetBSD*|OpenBSD*|DragonFly*)
++	FreeBSD*|NetBSD*|OpenBSD*|IABSD*|DragonFly*)
+ 		if [[ "`$CC -dM -E - </dev/null | grep __ELF__`" != "" ]]
+ 		then
+ 			LINKFORSHARED="-Wl,--export-dynamic"
+@@ -7682,7 +7682,7 @@
+   Darwin) _PYTHREAD_NAME_MAXLEN=63;;
+   iOS) _PYTHREAD_NAME_MAXLEN=63;;
+   FreeBSD*) _PYTHREAD_NAME_MAXLEN=19;; # gh-131268
+-  OpenBSD*) _PYTHREAD_NAME_MAXLEN=23;; # gh-131268
++  OpenBSD*|IABSD*) _PYTHREAD_NAME_MAXLEN=23;; # gh-131268
+   *) _PYTHREAD_NAME_MAXLEN=;;
+ esac
+ if test -n "$_PYTHREAD_NAME_MAXLEN"; then

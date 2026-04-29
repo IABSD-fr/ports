@@ -30,6 +30,10 @@ LDFLAGS += 		-L${LOCALBASE}/lib
 CONFIGURE_STYLE =	simple
 CONFIGURE_ARGS +=	--with-libpng-prefix=${LOCALBASE}/lib
 
+post-extract:
+	cp /usr/ports/infrastructure/db/config.guess ${WRKSRC}/config.guess
+	cp /usr/ports/infrastructure/db/config.sub ${WRKSRC}/config.sub
+
 USE_GMAKE =		Yes
 
 NO_TEST =		Yes

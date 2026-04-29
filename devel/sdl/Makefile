@@ -32,7 +32,7 @@ FLAVOR?=
 USE_GMAKE=	Yes
 SEPARATE_BUILD=	Yes
 CONFIGURE_STYLE= gnu
-MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC} ${WRKSRC}/test
+MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC} ${WRKSRC}/test ${WRKSRC}/build-scripts
 CONFIGURE_ARGS+= --disable-alsa \
 		 --disable-arts \
 		 --disable-esd \

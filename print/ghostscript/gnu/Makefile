@@ -54,6 +54,11 @@ COMPILER =		base-clang ports-gcc
 COMPILER_LANGS =	c
 CONFIGURE_STYLE =	simple
 
+pre-configure:
+	for d in ${WRKSRC} ${WRKSRC}/lcms2mt ${WRKSRC}/expat/conftools; do \
+		cp -f ${PORTSDIR}/infrastructure/db/config.guess $$d/config.guess; \
+		cp -f ${PORTSDIR}/infrastructure/db/config.sub $$d/config.sub; \
+	done
 CONFIGURE_ARGS =	--prefix=${PREFIX}
 CONFIGURE_ARGS +=	--with-gs=gs
 CONFIGURE_ARGS +=	--with-pcl=gpcl6

@@ -19,6 +19,7 @@ COMPILER=	base-clang ports-gcc base-gcc
 SITES=		https://hyperrealm.github.io/libconfig/dist/
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/aux-build
 
 TEST_TARGET=	test
 

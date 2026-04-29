@@ -17,6 +17,7 @@ PERMIT_PACKAGE=	Yes
 SITES=		https://pyyaml.org/download/libyaml/
 
 CONFIGURE_STYLE=gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/config
 USE_GMAKE=	Yes
 
 .include <bsd.port.mk>

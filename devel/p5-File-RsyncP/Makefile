@@ -12,4 +12,8 @@ MAKE_ENV +=	CC='${CC}'
 
 WANTLIB += c m perl
 
+post-extract:
+	cp -f ${PORTSDIR}/infrastructure/db/config.guess ${WRKSRC}/FileList/config.guess
+	cp -f ${PORTSDIR}/infrastructure/db/config.sub ${WRKSRC}/FileList/config.sub
+
 .include <bsd.port.mk>

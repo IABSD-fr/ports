@@ -41,5 +41,6 @@ ALL_TARGET =		wg
 
 post-extract:
 	sed -i 's/install -v /install /g' ${WRKSRC}/Makefile
+	cp ${WRKSRC}/wg-quick/openbsd.bash ${WRKSRC}/wg-quick/iabsd.bash
 
 .include <bsd.port.mk>

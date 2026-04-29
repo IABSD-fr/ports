@@ -1,0 +1,13 @@
+Recognize IABSD for gmake detection.
+
+Index: src/bootstrap/src/utils/helpers.rs
+--- src/bootstrap/src/utils/helpers.rs.orig
++++ src/bootstrap/src/utils/helpers.rs
+@@ -278,6 +278,7 @@
+         || host.contains("freebsd")
+         || host.contains("netbsd")
+         || host.contains("openbsd")
++        || host.contains("iabsd")
+     {
+         PathBuf::from("gmake")
+     } else {

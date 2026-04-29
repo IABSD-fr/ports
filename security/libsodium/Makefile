@@ -26,6 +26,7 @@ COMPILER_LANGS = c
 SEPARATE_BUILD=	Yes
 
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/libsodium

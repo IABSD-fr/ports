@@ -1,0 +1,22 @@
+Recognize IABSD for libatomic exclusion and CMAKE_SYSTEM_NAME.
+
+Index: src/bootstrap/src/core/build_steps/llvm.rs
+--- src/bootstrap/src/core/build_steps/llvm.rs.orig
++++ src/bootstrap/src/core/build_steps/llvm.rs
+@@ -412,6 +412,7 @@
+             || target.starts_with("sparc-"))
+             && !target.contains("freebsd")
+             && !target.contains("openbsd")
++            && !target.contains("iabsd")
+             && !target.contains("netbsd")
+         {
+             // CSKY and RISC-V GCC erroneously requires linking against
+@@ -673,7 +674,7 @@
+             cfg.define("CMAKE_SYSTEM_NAME", "NetBSD");
+         } else if target.contains("dragonfly") {
+             cfg.define("CMAKE_SYSTEM_NAME", "DragonFly");
+-        } else if target.contains("openbsd") {
++        } else if target.contains("openbsd") || target.contains("iabsd") {
+             cfg.define("CMAKE_SYSTEM_NAME", "OpenBSD");
+         } else if target.contains("freebsd") {
+             cfg.define("CMAKE_SYSTEM_NAME", "FreeBSD");

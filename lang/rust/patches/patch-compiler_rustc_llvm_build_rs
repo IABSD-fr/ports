@@ -1,9 +1,20 @@
-Switch sparc64 to LLVM's libc++
+Switch sparc64 to LLVM's libc++ and recognize IABSD for C++ stdlib,
+libatomic, and system libs handling.
 
 Index: compiler/rustc_llvm/build.rs
 --- compiler/rustc_llvm/build.rs.orig
 +++ compiler/rustc_llvm/build.rs
-@@ -476,9 +476,8 @@ fn main() {
+@@ -355,6 +355,9 @@
+         || target.contains("cygwin")
+     {
+         println!("cargo:rustc-link-lib=z");
++    } else if target.contains("openbsd") || target.contains("iabsd") {
++        println!("cargo:rustc-link-lib=z");
++        println!("cargo:rustc-link-lib=execinfo");
+     } else if target.contains("netbsd") {
+         // On NetBSD/i386, gcc and g++ is built for i486 (to maximize backward compat)
+         // However, LLVM insists on using 64-bit atomics.
+@@ -476,9 +479,9 @@
      let llvm_static_stdcpp = tracked_env_var_os("LLVM_STATIC_STDCPP");
      let llvm_use_libcxx = tracked_env_var_os("LLVM_USE_LIBCXX");
  
@@ -11,7 +22,16 @@ Index: compiler/rustc_llvm/build.rs
 -        if target.contains("sparc64") { "estdc++" } else { "c++" }
 -    } else if target.contains("darwin")
 +    let stdcppname = if target.contains("openbsd")
++        || target.contains("iabsd")
 +        || target.contains("darwin")
          || target.contains("freebsd")
          || target.contains("windows-gnullvm")
          || target.contains("aix")
+@@ -498,7 +501,7 @@
+     // atomic operations. Some BSD uses Clang as its system
+     // compiler and provides no libatomic in its base system so
+     // does not want this.
+-    if target.starts_with("riscv") && !target.contains("freebsd") && !target.contains("openbsd") {
++    if target.starts_with("riscv") && !target.contains("freebsd") && !target.contains("openbsd") && !target.contains("iabsd") {
+         println!("cargo:rustc-link-lib=atomic");
+     }

@@ -46,3 +46,7 @@ CONFIGURE_ARGS +=	--target="${CONFIG}" \
 			--enable-static=yes
 
 NO_TEST =		Yes
+
+post-extract:
+	cp ${PORTSDIR}/infrastructure/db/config.guess ${WRKSRC}
+	cp ${PORTSDIR}/infrastructure/db/config.sub ${WRKSRC}

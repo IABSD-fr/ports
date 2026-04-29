@@ -23,6 +23,9 @@ NO_TEST =		Yes
 
 ALL_TARGET =		default
 
+post-extract:
+	cp -R ${WRKSRC}/arch/FreeBSD ${WRKSRC}/arch/IABSD
+
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/ttyload ${PREFIX}/bin/
 	${INSTALL_MAN} ${WRKSRC}/ttyload.1 ${PREFIX}/man/man1/

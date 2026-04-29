@@ -54,6 +54,7 @@ FAKE_FLAGS=		exampledir=${PREFIX}/share/examples/hamlib
 
 SEPARATE_BUILD=		Yes
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 
 CONFIGURE_ARGS=		--with-perl-binding \
 			--with-python-binding \

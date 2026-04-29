@@ -19,6 +19,7 @@ WANTLIB=		c iconv intl pthread
 LIB_DEPENDS=		devel/gettext,-runtime
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/utils
 CONFIGURE_ARGS+=	--enable-static
 
 .include <bsd.port.mk>

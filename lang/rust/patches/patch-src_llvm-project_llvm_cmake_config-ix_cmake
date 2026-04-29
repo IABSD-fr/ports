@@ -1,0 +1,14 @@
+Add IABSD to POSIX system detection.
+
+Index: src/llvm-project/llvm/cmake/config-ix.cmake
+--- src/llvm-project/llvm/cmake/config-ix.cmake.orig
++++ src/llvm-project/llvm/cmake/config-ix.cmake
+@@ -12,7 +12,7 @@
+ include(CheckProblematicConfigurations)
+ include(HandleLLVMStdlib)
+
+-if (ANDROID OR CYGWIN OR CMAKE_SYSTEM_NAME MATCHES "AIX|DragonFly|FreeBSD|Haiku|Linux|NetBSD|OpenBSD|SunOS")
++if (ANDROID OR CYGWIN OR CMAKE_SYSTEM_NAME MATCHES "AIX|DragonFly|FreeBSD|Haiku|IABSD|Linux|NetBSD|OpenBSD|SunOS")
+   set(HAVE_MACH_MACH_H 0)
+   set(HAVE_MALLOC_MALLOC_H 0)
+   set(HAVE_PTHREAD_H 1)

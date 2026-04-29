@@ -1,0 +1,12 @@
+Index: openmp/cmake/modules/LibompHandleFlags.cmake
+--- openmp/cmake/modules/LibompHandleFlags.cmake.orig
++++ openmp/cmake/modules/LibompHandleFlags.cmake
+@@ -145,7 +145,7 @@
+   if(LIBOMP_HAVE_SHM_OPEN_WITH_LRT)
+     libomp_append(libflags_local -lrt)
+   endif()
+-  if("${CMAKE_SYSTEM_NAME}" MATCHES "DragonFly|FreeBSD|OpenBSD")
++  if("${CMAKE_SYSTEM_NAME}" MATCHES "DragonFly|FreeBSD|IABSD|OpenBSD")
+     libomp_append(libflags_local "-Wl,--no-as-needed" LIBOMP_HAVE_AS_NEEDED_FLAG)
+     libomp_append(libflags_local "-lm")
+     libomp_append(libflags_local "-Wl,--as-needed" LIBOMP_HAVE_AS_NEEDED_FLAG)

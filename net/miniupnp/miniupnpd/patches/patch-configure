@@ -1,0 +1,13 @@
+Index: configure
+--- configure.orig
++++ configure
+@@ -288,6 +288,9 @@ echo "" >> ${CONFIGFILE}
+
+ # OS Specific stuff
+ OS_FAMILY="$OS_NAME"
++case $OS_NAME in
++	IABSD) OS_NAME=OpenBSD ;;
++esac
+ case $OS_NAME in
+ 	OpenBSD)
+ 		MAKEFILE=Makefile.bsd

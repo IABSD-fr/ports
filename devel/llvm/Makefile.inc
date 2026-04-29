@@ -174,7 +174,7 @@ MODPY_ADJ_FILES +=	\
 # XXX sync
 GCC_VER =		15.2.0
 # do not include OSREV
-GCC_CONFIG =		${MACHINE_ARCH:S/amd64/x86_64/}-unknown-openbsd
+GCC_CONFIG =		${MACHINE_ARCH:S/amd64/x86_64/}-unknown-iabsd
 
 CLANG_INCLUDE_PATH =	${LLVM_BASE}/lib/clang/${LLVM_MAJOR}/include
 SUBST_VARS +=		CLANG_INCLUDE_PATH GCC_VER GCC_CONFIG

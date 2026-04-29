@@ -17,6 +17,7 @@ WANTLIB=	c z
 
 USE_GMAKE=	Yes
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/autoconf/helpers
 CONFIGURE_ARGS+=--docdir=${PREFIX}/share/doc/nasm \
 		--htmldir=${PREFIX}/share/doc/nasm/html
 

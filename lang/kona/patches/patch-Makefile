@@ -1,4 +1,5 @@
 Remove PREFIX and hardcoded optimization flags.
+Add IABSD support (same as OpenBSD).
 
 Index: Makefile
 --- Makefile.orig
@@ -10,6 +11,32 @@ Index: Makefile
  LIB=libkona.a
 -DEVFLAGS = -O0 -g3 -DDEBUG -Wall
 +DEVFLAGS = -g3 -DDEBUG -Wall
- 
+
  OS := $(shell uname -s | tr "[:upper:]" "[:lower:]")
  $(info OS="$(OS)")
+@@ -68,6 +65,14 @@ OBJS= src/0.o src/bswap.o src/c.o src/getline.o src/m
+       src/v.o src/va.o src/vc.o src/vd.o src/vf.o src/vg.o src/vq.o
+ endif
+
++ifeq (iabsd,$(OS))
++CFLAGS += -pthread
++LDFLAGS = -lm
++OBJS= src/0.o src/bswap.o src/c.o src/getline.o src/mt.o src/p.o src/r.o \
++      src/k.o src/kc.o src/kx.o src/kg.o src/km.o src/kn.o src/ko.o src/ks.o \
++      src/v.o src/va.o src/vc.o src/vd.o src/vf.o src/vg.o src/vq.o
++endif
++
+ ifeq (netbsd,$(OS))
+ CFLAGS += -pthread
+ LDFLAGS = -lm
+@@ -181,6 +186,10 @@ endif
+ ifeq (openbsd,$(OS))
+ src/*.o: src/incs.h src/ts.h Makefile src/k.h
+ endif
++
++ifeq (iabsd,$(OS))
++src/*.o: src/incs.h src/ts.h Makefile src/k.h
++endif
+
+ ifeq (netbsd,$(OS))
+ src/*.o: src/incs.h src/ts.h Makefile src/k.h
