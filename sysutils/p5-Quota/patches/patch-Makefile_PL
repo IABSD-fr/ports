@@ -1,0 +1,15 @@
+Add IABSD support (same as OpenBSD).
+
+Index: Makefile.PL
+--- Makefile.PL.orig
++++ Makefile.PL
+@@ -19,7 +19,8 @@ elsif($os =~ /^dragonfly/i ||
+       $os =~ /^Darwin/    ||
+       $os =~ /^FreeBSD/   ||
+       $os =~ /^NetBSD/    ||
+-      $os =~ /^OpenBSD/)   { $config='bsd.h'; }
++      $os =~ /^OpenBSD/   ||
++      $os =~ /^IABSD/)     { $config='bsd.h'; }
+
+ if (defined($config)) {
+   print "Using hints/$config for myconfig.h\n";

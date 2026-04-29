@@ -1,0 +1,17 @@
+Add IABSD support (same as OpenBSD).
+
+Index: mk/build.mk
+--- mk/build.mk.orig
++++ mk/build.mk
+@@ -105,6 +105,10 @@ ifeq "$(KERNEL)" "Darwin"
+ else ifeq "$(KERNEL)" "OpenBSD"
+   LDLIBS_ICONV = -liconv
+   BASIC_CFLAGS += -I/usr/local/include
+   BASIC_LDFLAGS += -L/usr/local/lib
++else ifeq "$(KERNEL)" "IABSD"
++  LDLIBS_ICONV = -liconv
++  BASIC_CFLAGS += -I/usr/local/include
++  BASIC_LDFLAGS += -L/usr/local/lib
+ else ifeq "$(KERNEL)" "NetBSD"
+   ifeq ($(shell expr "`uname -r`" : '[01]\.'),2)
+     LDLIBS_ICONV = -liconv

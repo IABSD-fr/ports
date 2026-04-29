@@ -20,5 +20,5 @@ BUILD_DEPENDS=		devel/help2man \
 			lang/vala
 
 CONFIGURE_STYLE=gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 .include <bsd.port.mk>

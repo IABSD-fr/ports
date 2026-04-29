@@ -21,7 +21,7 @@ BUILD_DEPENDS =		devel/check
 LIB_DEPENDS =		security/libgcrypt
 
 CONFIGURE_STYLE =	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
 
 .include <bsd.port.mk>

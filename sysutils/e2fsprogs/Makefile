@@ -29,6 +29,7 @@ LIB_DEPENDS=	devel/gettext,-runtime
 
 SEPARATE_BUILD=	Yes
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/config
 CONFIGURE_ARGS+= --disable-tls \
 		--disable-uuidd \
 		--disable-fuse2fs \

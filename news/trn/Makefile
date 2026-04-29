@@ -23,6 +23,7 @@ SEPARATE_BUILD=Yes
 
 pre-configure: 
 	cp ${FILESDIR}/openbsd-hints ${WRKSRC}/hints/openbsd.sh
+	cp ${FILESDIR}/openbsd-hints ${WRKSRC}/hints/iabsd.sh
 	ln -s /usr/bin/true ${WRKDIR}/bin/nroff
 
 FAKE_FLAGS= \

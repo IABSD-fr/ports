@@ -24,6 +24,7 @@ USE_GMAKE=		Yes
 SEPARATE_BUILD=		Yes
 
 CONFIGURE_STYLE=	gnu old
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/src/build-aux
 CONFIGURE_ARGS=		--fsstnd=openbsd \
 			--disable-mmap \
 			--with-gettext \

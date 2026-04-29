@@ -8,7 +8,7 @@ Index: meson.build
  endif
  
 -have_ld_preload = ['linux', 'freebsd', 'darwin', 'dragonfly', 'sunos'].contains(host_machine.system())
-+have_ld_preload = ['linux', 'freebsd', 'darwin', 'dragonfly', 'sunos', 'openbsd'].contains(host_machine.system())
++have_ld_preload = ['linux', 'freebsd', 'darwin', 'dragonfly', 'sunos', 'openbsd', 'iabsd'].contains(host_machine.system())
  
  if have_ld_preload and zlib_dep.found() and conf.get('CAIRO_HAS_REAL_PTHREAD', 0) == 1 and conf.get('CAIRO_HAS_DLSYM', 0) == 1
    conf.set('CAIRO_HAS_TRACE', 1)

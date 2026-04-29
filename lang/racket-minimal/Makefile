@@ -55,6 +55,7 @@ NO_TEST =		Yes
 USE_GMAKE =		Yes
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/lt
 CONFIGURE_ARGS +=	--enable-libffi \
 			--enable-pthread \
 			--enable-iconv \

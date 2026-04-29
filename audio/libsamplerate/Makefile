@@ -19,6 +19,7 @@ SITES=	https://github.com/libsndfile/libsamplerate/releases/download/${VER}/
 WANTLIB=	m
 
 CONFIGURE_STYLE=gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=	--disable-cpu-clip \
 		--disable-fftw \
 		--disable-sndfile

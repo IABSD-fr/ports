@@ -1,0 +1,23 @@
+Add IABSD support.
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -59,7 +59,7 @@
+     BINARY = mspdebug
+
+
+-    ifneq ($(filter $(UNAME_S),OpenBSD NetBSD),)
++    ifneq ($(filter $(UNAME_S),OpenBSD IABSD NetBSD),)
+ 	OS_LIBS =
+     else ifneq ($(filter $(UNAME_S),FreeBSD DragonFly),)
+ 	OS_CFLAGS = -pthread
+@@ -87,7 +87,7 @@
+       BSLHID_OBJ = transport/bslosx.o
+       RF25000_OBJ += transport/rf2500hidapi.o
+       LDFLAGS =
+-    else ifneq ($(filter $(UNAME_S),OpenBSD NetBSD DragonFly),)
++    else ifneq ($(filter $(UNAME_S),OpenBSD IABSD NetBSD DragonFly),)
+ 	PORTS_CFLAGS := $(shell pkg-config --cflags libusb)
+ 	PORTS_LDFLAGS := $(shell pkg-config --libs libusb) -ltermcap -pthread
+     else

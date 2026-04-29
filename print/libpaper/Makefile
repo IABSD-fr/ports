@@ -20,6 +20,7 @@ WANTLIB += c
 USE_GMAKE=		Yes
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 
 FAKE_FLAGS=		sysconfdir="${PREFIX}/share/examples/libpaper"
 

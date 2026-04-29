@@ -29,6 +29,9 @@ NO_TEST =		Yes
 SUBST_VARS +=		CC
 UPDATE_PLIST_ARGS += -i CC
 
+post-extract:
+	find ${WRKSRC}/src -name OpenBSD.c -exec sh -c 'cp "$$1" "$$(dirname $$1)/IABSD.c"' _ {} \;
+
 pre-configure:
 	${SUBST_CMD} ${WRKSRC}/INSTALL ${WRKSRC}/bin/{9c,9l}
 	cd ${WRKSRC} && sed -i 's,#!/bin/bash,#!/bin/sh,' \

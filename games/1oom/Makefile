@@ -15,6 +15,7 @@ SITES =	https://gitlab.com/KilgoreTroutMaskReplicant/1oom/uploads/13d2d645650929
 LIB_DEPENDS =	devel/sdl2-mixer
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--disable-hwsdl1 \
 			--disable-hwalleg4
 

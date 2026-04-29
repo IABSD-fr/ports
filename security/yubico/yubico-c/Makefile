@@ -11,7 +11,7 @@ MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 WANTLIB += c
 
 CONFIGURE_STYLE=	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 # due to patch
 BUILD_DEPENDS=	textproc/asciidoc
 

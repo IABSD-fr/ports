@@ -20,6 +20,7 @@ SITES=			${SITE_GNU:=libidn/}
 LIB_DEPENDS=		devel/gettext,-runtime
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=		--disable-csharp \
 			--disable-java \
 			--disable-valgrind-tests

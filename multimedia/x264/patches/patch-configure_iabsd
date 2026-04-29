@@ -1,0 +1,16 @@
+Add IABSD support.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -696,6 +696,10 @@
+         SYS="NETBSD"
+         libm="-lm"
+         ;;
++    iabsd*)
++        SYS="OPENBSD"
++        libm="-lm"
++        ;;
+     openbsd*)
+         SYS="OPENBSD"
+         libm="-lm"

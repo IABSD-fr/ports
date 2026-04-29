@@ -25,7 +25,7 @@ LIB_DEPENDS=		devel/glib2 \
 			textproc/libxml
 
 CONFIGURE_STYLE=	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS+=	--with-xkb-base="${X11BASE}/share/X11/xkb/" \
 			--with-xkb-bin-base="${X11BASE}/bin/" \
 			--with-xmodmap-base="/usr/share/xmodmap"

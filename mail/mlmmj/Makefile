@@ -26,6 +26,7 @@ LIB_DEPENDS=	converters/libiconv
 TEST_DEPENDS=	${BUILD_DEPENDS}
 
 CONFIGURE_STYLE=gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/build-aux
 CONFIGURE_ARGS+=--enable-receive-strip=yes \
 		--enable-tests
 

@@ -22,6 +22,7 @@ COMPILER =		base-clang ports-gcc base-gcc
 CXXFLAGS_base-clang =	-std=gnu++11
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/admin
 # Don't pickup bash
 CONFIGURE_ENV =		ATF_SHELL=/bin/sh
 

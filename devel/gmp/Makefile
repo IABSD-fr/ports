@@ -44,13 +44,13 @@ CONFIGURE_ENV+=	gmp_cv_func_vsnprintf=yes
 CONFIGURE_ENV+= ASMFLAGS=-mmark-bti-property
 .endif
 
-.if ${MACHINE_ARCH:Mhppa}
+.if ${MACHINE_ARCH:Mhppa} || ${MACHINE_ARCH:Msparc64}
 CONFIGURE_ARGS+= --disable-assembly
 .endif
 
 .include <bsd.port.arch.mk>
 .if ${BUILD_PACKAGES:M-cxx}
-COMPILER=	base-clang ports-gcc base-gcc
+COMPILER=	base-clang
 CONFIGURE_ARGS+=--enable-cxx
 .endif
 

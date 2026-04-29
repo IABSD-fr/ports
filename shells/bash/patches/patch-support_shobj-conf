@@ -1,0 +1,11 @@
+--- support/shobj-conf.orig	Sun Apr 27 12:00:00 2026
++++ support/shobj-conf	Sun Apr 27 12:00:00 2026
+@@ -174,7 +174,7 @@
+ 	SHLIB_LIBS='-lncurses'	# see if -lcurses works on MacOS X 10.1
+ 	;;
+
+-openbsd*|netbsd*|mirbsd*)
++openbsd*|iabsd*|netbsd*|mirbsd*)
+ 	SHOBJ_CFLAGS=-fPIC
+ 	SHOBJ_LD='${CC}'
+ 	SHOBJ_LDFLAGS='-shared'

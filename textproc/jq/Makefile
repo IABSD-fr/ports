@@ -32,6 +32,8 @@ CONFIGURE_ARGS +=	--disable-docs
 # makes all tests fail with SIGILL
 CONFIGURE_ARGS +=	--disable-valgrind
 
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/config
+
 pre-configure:
 	ln -s ${LOCALBASE}/bin/gsed ${WRKDIR}/bin/sed
 

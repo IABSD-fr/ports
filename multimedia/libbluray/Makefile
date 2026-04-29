@@ -25,6 +25,7 @@ BUILD_DEPENDS =		devel/bison
 
 SEPARATE_BUILD =	Yes
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 YACC =			${LOCALBASE}/bin/bison -y
 CONFIGURE_ARGS +=	--disable-bdjava-jar \
 			--disable-doxygen-doc \

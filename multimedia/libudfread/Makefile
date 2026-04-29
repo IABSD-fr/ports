@@ -13,7 +13,7 @@ HOMEPAGE=	https://code.videolan.org/videolan/libudfread/
 PERMIT_PACKAGE=	Yes
 
 CONFIGURE_STYLE=gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 NO_TEST=	Yes
 
 .include <bsd.port.mk>

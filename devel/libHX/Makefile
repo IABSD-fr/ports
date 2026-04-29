@@ -18,5 +18,5 @@ SITES=			https://inai.de/files/libhx/
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 CONFIGURE_STYLE=	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 .include <bsd.port.mk>

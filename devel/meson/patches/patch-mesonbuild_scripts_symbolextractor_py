@@ -1,0 +1,14 @@
+Use OpenBSD symbol extraction for IABSD.
+
+Index: mesonbuild/scripts/symbolextractor.py
+--- mesonbuild/scripts/symbolextractor.py.orig
++++ mesonbuild/scripts/symbolextractor.py
+@@ -296,6 +296,8 @@
+         gnu_syms(libfilename, outfilename)
+     elif mesonlib.is_osx():
+         osx_syms(libfilename, outfilename)
++    elif mesonlib.is_iabsd():
++        openbsd_syms(libfilename, outfilename)
+     elif mesonlib.is_openbsd():
+         openbsd_syms(libfilename, outfilename)
+     elif mesonlib.is_freebsd():

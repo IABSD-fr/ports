@@ -16,5 +16,5 @@ MAINTAINER=	Michael <michi+openbsd@dataswamp.org>
 PERMIT_PACKAGE=	Yes
 
 CONFIGURE_STYLE=	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/admin
 .include <bsd.port.mk>

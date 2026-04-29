@@ -29,6 +29,7 @@ SITES=			${SITE_GNUPG:=libgcrypt/}
 LIB_DEPENDS=		security/libgpg-error
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=		--enable-static \
 			--disable-drng-support
 

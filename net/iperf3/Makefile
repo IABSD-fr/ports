@@ -22,6 +22,7 @@ WANTLIB += c m pthread
 SITES=		https://downloads.es.net/pub/iperf/
 
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/config
 CONFIGURE_ARGS=	 --with-openssl=no
 
 DEBUG_PACKAGES=	${BUILD_PACKAGES}

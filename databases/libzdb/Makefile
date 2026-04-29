@@ -18,6 +18,7 @@ SITES =			http://www.tildeslash.com/libzdb/dist/
 
 USE_GMAKE =		Yes
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/config
 CONFIGURE_ENV +=	LDFLAGS="-L${LOCALBASE}/lib" \
 			CPPFLAGS="-I${LOCALBASE}/include"
 CONFIGURE_ARGS +=	--with-postgresql=no \

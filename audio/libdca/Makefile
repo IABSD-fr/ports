@@ -18,6 +18,7 @@ WANTLIB += c m sndio
 
 CONFIGURE_STYLE=	autoconf
 AUTOCONF_VERSION=	2.69
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/.auto
 CONFIGURE_ARGS=		--disable-oss
 
 post-extract:

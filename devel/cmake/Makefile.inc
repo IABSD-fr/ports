@@ -12,7 +12,7 @@ SITES =		https://www.cmake.org/files/v${VER:R}/
 PERMIT_PACKAGE =	Yes
 
 .if !defined(NO_BUILD) || ${NO_BUILD:L} != yes
-COMPILER =		base-clang ports-gcc
+COMPILER =		base-clang
 
 PATCHDIR ?=		${.CURDIR}/../patches
 CHECKSUM_FILE ?=	${.CURDIR}/../distinfo

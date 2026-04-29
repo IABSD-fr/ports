@@ -1,5 +1,4 @@
 ONLY_FOR_ARCHS =	amd64 aarch64 i386 powerpc64 riscv64
-DPB_PROPERTIES =	parallel
 
 USE_WXNEEDED =		Yes
 
@@ -34,7 +33,7 @@ WANTLIB += lib/${EOPENSSL_VSN}/ssl lib/${EOPENSSL_VSN}/crypto
 COMPILER =		base-clang ports-gcc
 
 USE_GMAKE =		Yes
-
+MAKE_ENV =		JOBS=1
 BUILD_DEPENDS =		sysutils/flock
 
 RUN_DEPENDS =		devel/gmake \

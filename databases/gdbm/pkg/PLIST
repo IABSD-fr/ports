@@ -2,7 +2,6 @@
 @bin bin/gdbm_load
 @bin bin/gdbmtool
 include/gdbm.h
-@info info/gdbm.info
 @static-lib lib/libgdbm.a
 lib/libgdbm.la
 @lib lib/libgdbm.so.${LIBgdbm_VERSION}

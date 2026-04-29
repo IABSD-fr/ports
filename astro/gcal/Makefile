@@ -18,6 +18,7 @@ LIB_DEPENDS =		converters/libunistring \
 WANTLIB =  c curses iconv intl m pthread unistring
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--enable-easc \
 			--enable-libunistring
 CONFIGURE_ENV =		CPPFLAGS="-I${LOCALBASE}/include" \

@@ -23,6 +23,7 @@ LIB_DEPENDS +=		${MODTCL_LIB_DEPENDS}
 SEPARATE_BUILD =	Yes
 AUTOCONF_VERSION =	2.69
 CONFIGURE_STYLE =	autoconf no-autoheader
+MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC} ${WRKSRC}/tclconfig
 CONFIGURE_ARGS +=	--libdir=${MODTCL_TCLDIR} \
 			--with-tclconfig="${MODTCL_LIBDIR}" \
 			--with-tclinclude="${MODTCL_INCDIR}"

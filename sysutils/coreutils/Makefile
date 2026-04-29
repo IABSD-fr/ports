@@ -18,6 +18,7 @@ DEBUG_PACKAGES =	${BUILD_PACKAGES}
 LIB_DEPENDS =		devel/gettext,-runtime
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--program-prefix=g \
 			--without-libgmp
 # supply result to skip a test that will abort configure if run as root
