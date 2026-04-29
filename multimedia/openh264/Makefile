@@ -51,6 +51,9 @@ TEST_FLAGS +=	CODEC_UNITTEST_INCLUDES='-I${WRKSRC}/test -I/usr/local/include' \
 		CODEC_UNITTEST_LDFLAGS_SUFFIX=-L/usr/local/lib \
 		CODEC_UNITTEST_DEPS='libdecoder.a libencoder.a libprocessing.a libcommon.a'
 
+post-extract:
+	cp ${WRKSRC}/build/platform-bsd.mk ${WRKSRC}/build/platform-iabsd.mk
+
 post-install:
 	${INSTALL_PROGRAM} ${WRKBUILD}/h264{enc,dec} ${PREFIX}/bin/
 	rm ${PREFIX}/lib/libopenh264.so{.${MAJORVER},}

@@ -18,6 +18,7 @@ LIB_DEPENDS =		devel/libidn2 \
 
 SEPARATE_BUILD =	Yes
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--with-libgsasl=no \
 			--with-libidn=yes \
 			--with-tls=libtls \

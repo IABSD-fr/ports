@@ -27,6 +27,7 @@ RUN_DEPENDS-main=	${BASE_PKGPATH},-mac
 MULTI_PACKAGES=		-main -mac
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 
 # for local format-ma script
 BUILD_DEPENDS=		textproc/p5-Text-CSV

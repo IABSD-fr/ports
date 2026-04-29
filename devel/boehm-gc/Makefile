@@ -46,6 +46,7 @@ MAKE_ENV=	CP="cp" \
 		INSTALL_MAN="${INSTALL_MAN}"
 
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/libatomic_ops
 
 CONFIGURE_ARGS= --with-libatomic-ops=no \
 		--enable-cplusplus \

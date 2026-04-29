@@ -25,6 +25,7 @@ LIB_DEPENDS =	devel/sdl-mixer \
 SITES =		${SITE_SOURCEFORGE:=prboom-plus/}
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/autotools
 CONFIGURE_ARGS +=	--with-waddir=${TRUEPREFIX}/share/doom
 CONFIGURE_ENV +=	CPPFLAGS="${CPPFLAGS} -I${X11BASE}/include"
 

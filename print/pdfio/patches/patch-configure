@@ -1,15 +1,10 @@
-Index: configure
---- configure.orig
-+++ configure
-@@ -4298,6 +4298,11 @@ then :
+--- configure.orig	Tue Oct  6 21:49:08 2026
++++ configure	Tue Oct  6 21:50:28 2026
+@@ -4303,7 +4303,7 @@
  
- 	LIBPDFIO="libpdfio.1.dylib"
- 
-+    elif test "$host_os_name" = openbsd
-+then :
-+
-+	LIBPDFIO="libpdfio.so.${LIBpdfio_VERSION}"
-+
  else $as_nop
  
- 	LIBPDFIO="libpdfio.so.1"
+-	LIBPDFIO="libpdfio.so.1"
++	LIBPDFIO="libpdfio.so.${LIBpdfio_VERSION}"
+ 
+ fi

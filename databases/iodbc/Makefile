@@ -34,6 +34,7 @@ WANTLIB-admin += png xcb xcb-render xcb-shm z
 PSEUDO_FLAVORS=		bootstrap no_admin
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC} ${WRKSRC}/admin
 CONFIGURE_ARGS=		--with-iodbc-inidir="${SYSCONFDIR}/iodbc" \
 			--disable-libodbc
 

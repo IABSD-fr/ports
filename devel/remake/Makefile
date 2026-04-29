@@ -19,7 +19,7 @@ LIB_DEPENDS=		converters/libiconv \
 			devel/gettext,-runtime
 
 CONFIGURE_STYLE=	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=		--without-guile
 
 # The test suite expects to find SHELL.

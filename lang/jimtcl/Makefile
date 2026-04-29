@@ -68,6 +68,10 @@ pre-configure:
 	@cd ${WRKSRC}; ${SUBST_CMD} \
 	    initjimsh.tcl examples.ext/Makefile examples.api/Makefile.in
 
+post-extract:
+	cp ${PORTSDIR}/infrastructure/db/config.guess ${WRKSRC}/autosetup/autosetup-config.guess
+	cp ${PORTSDIR}/infrastructure/db/config.sub ${WRKSRC}/autosetup/autosetup-config.sub
+
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/jim
 	cd ${WRKSRC}; ${INSTALL_DATA} LICENSE \

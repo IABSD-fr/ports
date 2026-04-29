@@ -11,7 +11,7 @@ Index: meson.build
      endif
    endif
  
-+  if host_system == 'openbsd'
++  if host_system == 'openbsd' or host_system == 'iabsd'
 +      dlopen_deps += thread_deps
 +  endif
 +

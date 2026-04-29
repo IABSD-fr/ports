@@ -1,0 +1,18 @@
+Add IABSD support (same as OpenBSD).
+
+Index: Config
+--- Config.orig
++++ Config
+@@ -93,6 +93,12 @@ if [ -n "${UNAME_OS}" -a -n "${UNAME_REV}" ]; then
+ 		    *)
+ 			OS=nbsd44
+ 			;;
++		esac
++		;;
++	    IABSD)
++		case "${UNAME_REV}" in
++		    *)
++			OS=nbsd44
+ 		esac
+ 		;;
+ 	    OSF1)

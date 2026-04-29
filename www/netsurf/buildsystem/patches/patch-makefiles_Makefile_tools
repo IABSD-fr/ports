@@ -1,0 +1,21 @@
+Add IABSD support.
+
+Index: makefiles/Makefile.tools
+--- makefiles/Makefile.tools.orig
++++ makefiles/Makefile.tools
+@@ -104,6 +104,15 @@
+     FLEX ?= gflex
+   endif
+
++  ifeq ($(findstring iabsd,$(HOST)),iabsd)
++    # Building on+for IABSD
++    CFLAGS := $(CFLAGS) -I$(GCCSDK_INSTALL_ENV)/include -I/usr/local/include
++    CXXFLAGS := $(CXXFLAGS) -I$(GCCSDK_INSTALL_ENV)/include -I/usr/local/include
++    LDFLAGS := $(LDFLAGS) -L$(GCCSDK_INSTALL_ENV)/lib -L/usr/local/lib
++
++    FLEX ?= gflex
++  endif
++
+   ifeq ($(findstring freebsd,$(HOST)),freebsd)
+     # Building on+for FreeBSD
+     CFLAGS := $(CFLAGS) -I$(GCCSDK_INSTALL_ENV)/include -I/usr/local/include

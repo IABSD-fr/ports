@@ -19,6 +19,7 @@ COMPILER =		base-clang ports-gcc base-gcc
 LIB_DEPENDS=	devel/commoncpp
 
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC}/autoconf
 CONFIGURE_ARGS+= ${CONFIGURED_SHARED}
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib" \

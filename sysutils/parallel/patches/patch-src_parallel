@@ -1,0 +1,45 @@
+Add IABSD support (same as OpenBSD).
+
+Index: src/parallel
+--- src/parallel.orig
++++ src/parallel
+@@ -7119,6 +7119,7 @@ sub pid_parentpid_cmd {
+ 	     'netbsd' => $bsd,
+ 	     'nto' => $sysv,
+ 	     'openbsd' => $bsd,
++	     'iabsd' => $bsd,
+ 	     'solaris' => $sysv,
+ 	     'svr5' => $sysv,
+ 	     'syllable' => "echo ps not supported",
+@@ -8257,6 +8258,7 @@ sub loadavg_cmd {
+ 		'netbsd' => ['vmstat 1 2 | tail -n1', '$7*$8'],
+
+ 		# openbsd: $8*$9
++		# iabsd: $8*$9
+ 		# $ vmstat 1 2
+ 		#  procs    memory	 page			 disks	  traps		 cpu
+ 		#  r b w    avm	    fre	 flt  re  pi  po  fr  sr wd0 wd1  int	sys   cs us sy id
+@@ -8259,6 +8261,7 @@ sub loadavg_cmd {
+ 		#  0 0 0  76604	 109936	  24   0   0   0   0   0   0   0    7	114   20  0  1 99
+ 		'openbsd' => ['vmstat 1 2 | tail -n1', '$8*$9'],
+
++		'iabsd' => ['vmstat 1 2 | tail -n1', '$8*$9'],
+ 		# hpux: $8*$9
+ 		# $ vmstat 1 2
+ 		#	   procs	   memory		    page			      faults	   cpu
+@@ -8408,6 +8411,7 @@ sub processes_status_cmd {
+ 		    'netbsd' => $bsd,
+ 		    'nto' => $dummy,
+ 		    'openbsd' => $bsd,
++		    'iabsd' => $bsd,
+ 		    'solaris' => $sysv,
+ 		    'svr5' => $psel,
+ 		    'ultrix' => "ps -ax | awk '{print \$3,\$5}'",
+@@ -8977,6 +8981,8 @@ sub no_of_cpus {
+     } elsif ($^O eq 'openbsd') {
+ 	$cpu = sct_openbsd($cpu);
++    } elsif ($^O eq 'iabsd') {
++	$cpu = sct_openbsd($cpu);
+     } elsif ($^O eq 'gnu') {
+ 	$cpu = sct_hurd($cpu);
+     } elsif ($^O eq 'darwin') {

@@ -1,0 +1,14 @@
+Return openbsd for IABSD LLVM target.
+
+Index: mesonbuild/dependencies/dev.py
+--- mesonbuild/dependencies/dev.py.orig
++++ mesonbuild/dependencies/dev.py
+@@ -671,6 +671,8 @@
+             return 'freebsd'
+         elif m.is_netbsd():
+             return 'netbsd'
++        elif m.is_iabsd():
++            return 'openbsd'
+         elif m.is_openbsd():
+             return 'openbsd'
+         elif m.is_dragonflybsd():

@@ -1,0 +1,14 @@
+Add IABSD support.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -585,7 +585,7 @@
+ 	echo_n "Checking hosttype... "
+ 	echo $_host_os
+ 	case $_host_os in
+-		linux* | openbsd* | freebsd* | kfreebsd* | netbsd* | bsd* | gnu0.* | sunos* | hpux* | beos*)
++		linux* | iabsd* | openbsd* | freebsd* | kfreebsd* | netbsd* | bsd* | gnu0.* | sunos* | hpux* | beos*)
+ 			DEFINES="$DEFINES -DUNIX"
+ 			_host_os=unix
+ 			;;

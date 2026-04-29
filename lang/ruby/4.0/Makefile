@@ -51,6 +51,14 @@ TEST_TARGET =	test-all test-spec TESTOPTS="-v -q"
 post-extract:
 	${POST_EXTRACT}
 
+post-patch:
+	for _f in $$(find ${WRKSRC} -name config.guess); do \
+		cp ${PORTSDIR}/infrastructure/db/config.guess $$_f; \
+	done
+	for _f in $$(find ${WRKSRC} -name config.sub); do \
+		cp ${PORTSDIR}/infrastructure/db/config.sub $$_f; \
+	done
+
 pre-configure:
 	${FIX_RIPPER}
 	/usr/bin/touch ${WRKSRC}/ext/ripper/ripper.c

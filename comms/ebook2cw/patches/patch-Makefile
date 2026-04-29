@@ -4,11 +4,14 @@ across a default) so not patching to use share/examples here
 Index: Makefile
 --- Makefile.orig
 +++ Makefile
-@@ -22,6 +22,9 @@ UNAME := $(shell uname)
+@@ -22,6 +22,12 @@ UNAME := $(shell uname)
  
  ifeq ($(UNAME), Darwin)
  	LDFLAGS += -lintl
 +else ifeq ($(UNAME), OpenBSD)
++        LDFLAGS += -lintl -L/usr/local/lib
++        CFLAGS += -I/usr/local/include
++else ifeq ($(UNAME), IABSD)
 +        LDFLAGS += -lintl -L/usr/local/lib
 +        CFLAGS += -I/usr/local/include
  endif

@@ -25,6 +25,7 @@ WRKDIST =		${WRKDIR}/${DISTNAME:S/-rc/~rc/}
 
 SITES =			${SITE_SOURCEFORGE:=ftgl/}
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC} ${WRKSRC}/.auto
 CONFIGURE_ARGS +=	--with-gl-inc=${X11BASE}/include	\
 			--with-gl-lib=${X11BASE}/lib
 

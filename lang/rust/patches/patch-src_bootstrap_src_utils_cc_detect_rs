@@ -1,0 +1,14 @@
+Recognize IABSD for gcc/egcc detection.
+
+Index: src/bootstrap/src/utils/cc_detect.rs
+--- src/bootstrap/src/utils/cc_detect.rs.orig
++++ src/bootstrap/src/utils/cc_detect.rs
+@@ -173,7 +173,7 @@
+
+         // The default gcc version from OpenBSD may be too old, try using egcc,
+         // which is a gcc version from ports, if this is the case.
+-        t if t.contains("openbsd") => {
++        t if t.contains("openbsd") || t.contains("iabsd") => {
+             let c = cfg.get_compiler();
+             let gnu_compiler = compiler.gcc();
+             if !c.path().ends_with(gnu_compiler) {

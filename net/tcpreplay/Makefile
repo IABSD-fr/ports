@@ -14,7 +14,6 @@ WANTLIB=	c dnet>=1
 SITES=		https://github.com/appneta/tcpreplay/releases/download/v$V/
 
 CONFIGURE_STYLE= gnu
-
 LIB_DEPENDS=	net/libdnet
 
 do-test:

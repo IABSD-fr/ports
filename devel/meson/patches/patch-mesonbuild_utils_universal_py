@@ -1,0 +1,24 @@
+Add is_iabsd() to meson utility functions.
+
+Index: mesonbuild/utils/universal.py
+--- mesonbuild/utils/universal.py.orig
++++ mesonbuild/utils/universal.py
+@@ -126,6 +126,7 @@
+     'is_linux',
+     'is_netbsd',
+     'is_openbsd',
++    'is_iabsd',
+     'is_os2',
+     'is_osx',
+     'is_parent_path',
+@@ -648,6 +649,10 @@
+ def is_openbsd() -> bool:
+     return platform.system().lower() == 'openbsd'
+
++
++def is_iabsd() -> bool:
++    return platform.system().lower() == 'iabsd'
++
+
+ def is_windows() -> bool:
+     platname = platform.system().lower()

@@ -24,6 +24,7 @@ WANTLIB += c crypto curses edit event_core event_pthreads m pthread ssl
 # which requires bison
 
 CONFIGURE_STYLE=  autoconf
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 AUTOCONF_VERSION= 2.69
 
 CONFIGURE_ARGS=	--docdir=${TRUEPREFIX}/share/doc/ntp \

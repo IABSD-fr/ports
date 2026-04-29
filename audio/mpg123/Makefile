@@ -19,6 +19,7 @@ EXTRACT_SUFX=	.tar.bz2
 WANTLIB=	c m sndio
 
 CONFIGURE_STYLE=gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build
 CONFIGURE_ARGS=	--enable-static \
 		--with-audio=sndio \
 		--with-optimization=0

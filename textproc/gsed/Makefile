@@ -22,6 +22,7 @@ LIB_DEPENDS=		devel/gettext,-runtime
 BUILD_DEPENDS=		devel/bison
 
 CONFIGURE_STYLE=	gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS+=	--program-prefix=g
 
 PORTHOME =		${WRKDIR}

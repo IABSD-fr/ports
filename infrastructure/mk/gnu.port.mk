@@ -64,6 +64,20 @@ MODGNU_configure = for d in ${MODGNU_CONFIG_GUESS_DIRS}; \
 		chmod a+rx $$d/config.guess; \
 		cp -f ${PORTSDIR}/infrastructure/db/config.sub $$d; \
 		chmod a+rx $$d/config.sub; \
+	done; \
+	for f in $$(find ${WRKSRC} -name configure -o -name ltmain.sh); \
+	do \
+		sed -i -E \
+			-e 's,([^ |]*-)(openbsd)\*,\1\2*|\1iabsd*,g' \
+			-e 's,([^ |]*)\*openbsd\*,\1*openbsd*|\1*iabsd*,g' \
+			-e 's/xopenbsd\*([)|])/xopenbsd*|xiabsd*\1/g' \
+			-e 's/(^|[[:space:]])(openbsd)\*([)|])/\1\2*|iabsd*\3/g' \
+			-e 's/(^|[[:space:]])(openbsd)\* \|/\1\2* | iabsd* |/g' \
+			-e 's/OpenBSD-\*\)/OpenBSD-*|IABSD-*)/g' \
+			-e 's,OpenBSD/\*([)|]),OpenBSD/*|IABSD/*\1,g' \
+			-e 's/(^|[[:space:]])(OpenBSD)\*([)|])/\1\2*|IABSD*\3/g' \
+			-e 's/\|OpenBSD\*([)|])/|OpenBSD*|IABSD*\1/g' \
+			-e 's/\|openbsd\*([)|])/|openbsd*|iabsd*\1/g' $$f; \
 	done; ${MODSIMPLE_configure}
 
 .if ${MODGNU_SAVE_CACHE:L} == "yes"

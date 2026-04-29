@@ -18,6 +18,7 @@ WANTLIB +=	c
 SITES=		https://soulsphere.org/projects/lhasa/
 
 CONFIGURE_STYLE = gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/autotools
 
 TEST_DEPENDS =	shells/bash
 

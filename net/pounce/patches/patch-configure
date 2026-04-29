@@ -1,0 +1,16 @@
+Add IABSD support.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -42,6 +42,10 @@
+ 		ldadd crypt ''
+ 		defstr OPENSSL_BIN /usr/bin/openssl
+ 		;;
++	(IABSD)
++		ldadd crypt ''
++		defstr OPENSSL_BIN /usr/bin/openssl
++		;;
+ 	(Linux)
+ 		cflags -D_GNU_SOURCE
+ 		config libtls

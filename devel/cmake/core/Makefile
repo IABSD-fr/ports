@@ -9,7 +9,7 @@ COMMENT-help =	files for CMake --help
 
 MULTI_PACKAGES =	-main -help
 
-COMPILER =		base-clang ports-gcc
+COMPILER =		base-clang
 
 WANTLIB-main += ${WANTLIB}
 WANTLIB-main += ${COMPILER_LIBCXX} archive c curl curses expat form
@@ -48,5 +48,21 @@ MAKE_ENV +=		MODCMAKE_PORT_BUILD=yes
 
 TEST_TARGET =		test
 TEST_DEPENDS +=		devel/git
+
+post-extract:
+	for f in ${WRKSRC}/Modules/Platform/OpenBSD*.cmake; do \
+		cp $$f $$(echo $$f | sed 's/OpenBSD/IABSD/'); \
+	done
+	for f in ${WRKSRC}/Modules/Platform/Linker/OpenBSD*.cmake; do \
+		cp $$f $$(echo $$f | sed 's/OpenBSD/IABSD/'); \
+	done
+
+post-fake:
+	for f in ${WRKINST}${TRUEPREFIX}/share/cmake/Modules/Platform/OpenBSD*.cmake; do \
+		cp $$f $$(echo $$f | sed 's/OpenBSD/IABSD/'); \
+	done
+	for f in ${WRKINST}${TRUEPREFIX}/share/cmake/Modules/Platform/Linker/OpenBSD*.cmake; do \
+		cp $$f $$(echo $$f | sed 's/OpenBSD/IABSD/'); \
+	done
 
 .include <bsd.port.mk>

@@ -1,7 +1,6 @@
-Index: Makefile.in
---- Makefile.in.orig
-+++ Makefile.in
-@@ -159,6 +159,8 @@ install:	$(TARGETS)
+--- Makefile.in.orig	Tue Oct  6 21:39:12 2026
++++ Makefile.in	Tue Oct  6 21:40:51 2026
+@@ -159,6 +159,8 @@
  	if test "x$(LIBPDFIO)" = xlibpdfio.so.1; then \
  		$(INSTALL) -c -m 755 libpdfio.so.1 $(BUILDROOT)$(libdir); \
  		ln -sf libpdfio.so.1 $(BUILDROOT)$(libdir)/libpdfio.so; \
@@ -10,7 +9,7 @@ Index: Makefile.in
  	elif test "x$(LIBPDFIO)" = xlibpdfio.1.dylib; then \
  		$(INSTALL) -c -m 755 libpdfio.1.dylib $(BUILDROOT)$(libdir); \
  		codesign -s "$(CODESIGN_IDENTITY)" -o runtime --timestamp $(BUILDROOT)$(libdir)/libpdfio.1.dylib; \
-@@ -204,6 +206,10 @@ libpdfio.a:		$(LIBOBJS)
+@@ -204,6 +206,10 @@
  	$(RANLIB) $@
  
  libpdfio.so.1:		$(LIBOBJS)

@@ -1,7 +1,6 @@
 bin/gegrep
 bin/gfgrep
 @bin bin/ggrep
-@info info/grep.info
 @comment lib/charset.alias
 @man man/man1/ggrep.1
 share/locale/af/

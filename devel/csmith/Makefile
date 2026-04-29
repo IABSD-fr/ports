@@ -23,6 +23,9 @@ COMPILER =		base-clang ports-gcc base-gcc
 
 MODULES =	devel/cmake
 
+CONFIGURE_STYLE=gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/autoconf
+USE_GMAKE=	Yes
 NO_TEST=	Yes
 
 pre-install:

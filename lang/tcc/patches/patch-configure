@@ -1,0 +1,12 @@
+Add IABSD support.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -82,7 +82,7 @@
+     targetos=WIN32
+     ;;
+-  DragonFly|OpenBSD|FreeBSD|NetBSD)
++  DragonFly|OpenBSD|IABSD|FreeBSD|NetBSD)
+     confvars="$confvars BSD ldl=no"
+     ;;
