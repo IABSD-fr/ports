@@ -19,6 +19,7 @@ COMPILER=	base-clang ports-gcc
 TEST_DEPENDS=	shells/bash
 
 CONFIGURE_STYLE= gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 
 # re2c will use bison if present at build time, but will otherwise fallback
 # to pregenerated files. because re2c is a depdendency of ninja, which is on

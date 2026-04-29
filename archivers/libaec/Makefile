@@ -20,5 +20,6 @@ SITES =			https://github.com/MathisRosenhauer/libaec/releases/download/v$(VERSIO
 SEPARATE_BUILD =	Yes
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/config
 
 .include <bsd.port.mk>

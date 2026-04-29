@@ -20,5 +20,6 @@ SITES =			${SITE_GNU:=libunistring/}
 LIB_DEPENDS =		converters/libiconv
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/build-aux
 
 .include <bsd.port.mk>

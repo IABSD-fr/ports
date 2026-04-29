@@ -21,6 +21,7 @@ SITES =			${SITE_GNU:=readline/}
 #SITES.p =		${SITE_GNU:=readline/${DISTNAME}-patches/}
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/support
 CONFIGURE_ARGS =	--includedir=${PREFIX}/include/ereadline
 SEPARATE_BUILD =	Yes
 

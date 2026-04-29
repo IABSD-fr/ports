@@ -15,6 +15,7 @@ SITES =		${SITE_SOURCEFORGE:=mikmod/}
 
 SEPARATE_BUILD = Yes
 CONFIGURE_STYLE = gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/autotools
 
 CONFIGURE_ARGS+= --disable-dl \
 		 --disable-oss \

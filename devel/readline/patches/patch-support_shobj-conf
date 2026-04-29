@@ -6,7 +6,7 @@ Index: support/shobj-conf
  	;;
  
 -openbsd*|netbsd*|mirbsd*)
-+openbsd*)
++openbsd*|iabsd*)
 +	SHOBJ_CFLAGS=-fPIC
 +	SHOBJ_LD='${CC}'
 +	SHOBJ_LDFLAGS='-shared'
