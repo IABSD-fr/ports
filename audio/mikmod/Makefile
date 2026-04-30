@@ -13,6 +13,7 @@ WANTLIB +=	c mikmod curses pthread sndio
 SITES =		${SITE_SOURCEFORGE:=mikmod/}
 
 CONFIGURE_STYLE = gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/autotools
 
 LIB_DEPENDS =	audio/libmikmod
 

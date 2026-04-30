@@ -1,0 +1,151 @@
+Add IABSD support to meson build system.
+
+Index: mesonbuild/utils/universal.py
+--- mesonbuild/utils/universal.py.orig
++++ mesonbuild/utils/universal.py
+@@ -126,6 +126,7 @@
+     'is_linux',
+     'is_netbsd',
+     'is_openbsd',
++    'is_iabsd',
+     'is_os2',
+     'is_osx',
+     'is_parent_path',
+@@ -648,6 +649,10 @@
+ def is_openbsd() -> bool:
+     return platform.system().lower() == 'openbsd'
+
++
++def is_iabsd() -> bool:
++    return platform.system().lower() == 'iabsd'
++
+
+ def is_windows() -> bool:
+     platname = platform.system().lower()
+Index: mesonbuild/envconfig.py
+--- mesonbuild/envconfig.py.orig
++++ mesonbuild/envconfig.py
+@@ -362,6 +362,12 @@
+         return self.system == 'openbsd'
+
++    def is_iabsd(self) -> bool:
++        """
++        Machine is IABSD?
++        """
++        return self.system == 'iabsd'
++
+     def is_dragonflybsd(self) -> bool:
+         """Machine is DragonflyBSD?"""
+         return self.system == 'dragonfly'
+@@ -584,7 +590,7 @@
+     if mesonlib.is_windows():
+         trial = detect_windows_arch(compilers)
+-    elif mesonlib.is_freebsd() or mesonlib.is_netbsd() or mesonlib.is_openbsd() or mesonlib.is_qnx() or mesonlib.is_aix():
++    elif mesonlib.is_freebsd() or mesonlib.is_netbsd() or mesonlib.is_openbsd() or mesonlib.is_iabsd() or mesonlib.is_qnx() or mesonlib.is_aix():
+         trial = platform.processor().lower()
+     else:
+@@ -650,7 +656,7 @@
+     if mesonlib.is_windows():
+         trial = detect_windows_arch(compilers)
+-    elif mesonlib.is_freebsd() or mesonlib.is_netbsd() or mesonlib.is_openbsd() or mesonlib.is_aix():
++    elif mesonlib.is_freebsd() or mesonlib.is_netbsd() or mesonlib.is_openbsd() or mesonlib.is_iabsd() or mesonlib.is_aix():
+         trial = platform.processor().lower()
+     else:
+Index: mesonbuild/compilers/mixins/gnu.py
+--- mesonbuild/compilers/mixins/gnu.py.orig
++++ mesonbuild/compilers/mixins/gnu.py
+@@ -362,7 +362,7 @@
+         self.base_options = {
+             OptionKey(o) for o in ['b_pch', 'b_lto', 'b_pgo', 'b_coverage',
+                                    'b_ndebug', 'b_staticpic', 'b_pie']}
+-        if not (self.info.is_windows() or self.info.is_cygwin() or self.info.is_openbsd()):
++        if not (self.info.is_windows() or self.info.is_cygwin() or self.info.is_openbsd() or self.info.is_iabsd()):
+             self.base_options.add(OptionKey('b_lundef'))
+         if not self.info.is_windows() or self.info.is_cygwin():
+             self.base_options.add(OptionKey('b_asneeded'))
+Index: mesonbuild/compilers/mixins/clike.py
+--- mesonbuild/compilers/mixins/clike.py.orig
++++ mesonbuild/compilers/mixins/clike.py
+@@ -999,7 +999,7 @@
+         for p in prefixes:
+             for s in suffixes:
+                 patterns.append(p + '{}.' + s)
+-        if shared and self.info.is_openbsd():
++        if shared and (self.info.is_openbsd() or self.info.is_iabsd()):
+             # Shared libraries on OpenBSD can be named libfoo.so.X.Y:
+             # https://www.openbsd.org/faq/ports/specialtopics.html#SharedLibs
+             #
+Index: mesonbuild/build.py
+--- mesonbuild/build.py.orig
++++ mesonbuild/build.py
+@@ -27,7 +27,7 @@
+     is_parent_path, relpath, PerMachineDefaultable,
+     MesonBugException, EnvironmentVariables, pickle_load, lazy_property,
+-    is_openbsd,
++    is_openbsd, is_iabsd,
+ )
+ from .options import OptionKey
+@@ -2663,7 +2663,7 @@
+             if self.darwin_versions is None and self.soversion is not None:
+                 # If unspecified, pick the soversion
+                 self.darwin_versions = (self.soversion, self.soversion)
+-        if is_openbsd():
++        if is_openbsd() or is_iabsd():
+             libname = self.name
+             if hasattr(self, 'prefix'):
+                 prefixed_name = self.prefix + self.name
+@@ -2727,7 +2727,7 @@
+         # filename. If ltversion != soversion we create an soversion alias:
+         # libfoo.so.0 -> libfoo.so.0.100.0
+         # Where libfoo.so.0.100.0 is the actual library
+-        if is_openbsd() and self.libversion is not None:
++        if (is_openbsd() or is_iabsd()) and self.libversion is not None:
+             return {}
+         if self.suffix == 'so' and self.ltversion and self.ltversion != self.soversion:
+             alias_tpl = self.filename_tpl.replace('ltversion', 'soversion')
+Index: mesonbuild/linkers/linkers.py
+--- mesonbuild/linkers/linkers.py.orig
++++ mesonbuild/linkers/linkers.py
+@@ -769,7 +769,7 @@
+             all_paths.update(extra_paths)
+
+         # TODO: should this actually be "for (dragonfly|open)bsd"?
+-        if mesonlib.is_dragonflybsd() or mesonlib.is_openbsd():
++        if mesonlib.is_dragonflybsd() or mesonlib.is_openbsd() or mesonlib.is_iabsd():
+             # This argument instructs the compiler to record the value of
+             # ORIGIN in the .dynamic section of the elf. On Linux this is done
+Index: mesonbuild/dependencies/dev.py
+--- mesonbuild/dependencies/dev.py.orig
++++ mesonbuild/dependencies/dev.py
+@@ -671,6 +671,8 @@
+             return 'freebsd'
+         elif m.is_netbsd():
+             return 'netbsd'
++        elif m.is_iabsd():
++            return 'openbsd'
+         elif m.is_openbsd():
+             return 'openbsd'
+         elif m.is_dragonflybsd():
+Index: mesonbuild/dependencies/boost.py
+--- mesonbuild/dependencies/boost.py.orig
++++ mesonbuild/dependencies/boost.py
+@@ -619,7 +619,7 @@
+         # mlog.debug('    - vscrt: {}'.format(vscrt))
+         libs = [x for x in libs if x.static == self.static or not self.explicit_static]
+         libs = [x for x in libs if x.mt == self.multithreading]
+-        if not self.env.machines[self.for_machine].is_openbsd():
++        if not (self.env.machines[self.for_machine].is_openbsd() or self.env.machines[self.for_machine].is_iabsd()):
+             libs = [x for x in libs if x.version_matches(lib_vers)]
+         libs = [x for x in libs if x.arch_matches(self.arch)]
+Index: mesonbuild/scripts/symbolextractor.py
+--- mesonbuild/scripts/symbolextractor.py.orig
++++ mesonbuild/scripts/symbolextractor.py
+@@ -296,6 +296,8 @@
+         gnu_syms(libfilename, outfilename)
+     elif mesonlib.is_osx():
+         osx_syms(libfilename, outfilename)
++    elif mesonlib.is_iabsd():
++        openbsd_syms(libfilename, outfilename)
+     elif mesonlib.is_openbsd():
+         openbsd_syms(libfilename, outfilename)
+     elif mesonlib.is_freebsd():

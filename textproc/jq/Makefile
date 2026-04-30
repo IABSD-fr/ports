@@ -22,6 +22,7 @@ SITES =			https://github.com/jqlang/jq/releases/download/jq-$V/
 USE_GMAKE =		Yes
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/config
 CONFIGURE_ARGS =	--with-oniguruma=${LOCALBASE}
 
 # no need for python to regenerate existing docs and manual

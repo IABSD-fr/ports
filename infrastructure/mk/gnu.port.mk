@@ -69,7 +69,12 @@ MODGNU_configure = for d in ${MODGNU_CONFIG_GUESS_DIRS}; \
 	do \
 		sed -i -e 's/\*-openbsd\*/*-openbsd*|*-iabsd*/g' \
 			-e 's/openbsd\*)/openbsd*|iabsd*)/g' \
-			-e 's/OpenBSD-\*)/OpenBSD-*|IABSD-*)/g' $$f; \
+			-e 's/openbsd\*|/openbsd*|iabsd*|/g' \
+			-e 's/OpenBSD-\*)/OpenBSD-*|IABSD-*)/g' \
+			-e 's,OpenBSD/\*),OpenBSD/*|IABSD/*),g' \
+			-e 's,OpenBSD/\*|,OpenBSD/*|IABSD/*|,g' \
+			-e 's/OpenBSD\*)/OpenBSD*|IABSD*)/g' \
+			-e 's/OpenBSD\*|/OpenBSD*|IABSD*|/g' $$f; \
 	done; ${MODSIMPLE_configure}
 
 .if ${MODGNU_SAVE_CACHE:L} == "yes"

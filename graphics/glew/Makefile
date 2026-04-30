@@ -28,7 +28,7 @@ USE_GMAKE=	Yes
 NO_TEST=	Yes
 
 post-extract:
-	@cp ${FILESDIR}/Makefile.openbsd ${WRKSRC}/config
+	@cp ${FILESDIR}/Makefile.openbsd ${WRKSRC}/config/Makefile.iabsd
 
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/include/GL

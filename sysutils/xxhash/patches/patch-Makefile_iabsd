@@ -1,0 +1,18 @@
+Add IABSD to recognized OS list for POSIX build.
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -247,10 +247,10 @@
+ UNAME := $(shell uname)
+
+ ## Linux/GNU
+-ifneq (,$(filter Linux Darwin GNU/kFreeBSD GNU Haiku OpenBSD FreeBSD NetBSD DragonFly SunOS CYGWIN% , $(UNAME)))
++ifneq (,$(filter Linux Darwin GNU/kFreeBSD GNU Haiku IABSD OpenBSD FreeBSD NetBSD DragonFly SunOS CYGWIN% , $(UNAME)))
+
+ GREP ?= grep
+-ifneq (,$(filter $(UNAME),OpenBSD FreeBSD NetBSD DragonFly SunOS))
++ifneq (,$(filter $(UNAME),IABSD OpenBSD FreeBSD NetBSD DragonFly SunOS))
+ SONAME_FLAGS =
+ endif
+

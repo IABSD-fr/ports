@@ -32,6 +32,7 @@ COMPILER =		base-clang ports-gcc
 USE_GMAKE =		Yes
 
 CONFIGURE_STYLE =	gnu
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/config
 
 TEST_DEPENDS +=		lang/gawk
 
