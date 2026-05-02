@@ -3,16 +3,21 @@ Add IABSD to recognized OS list for POSIX build.
 Index: Makefile
 --- Makefile.orig
 +++ Makefile
-@@ -247,10 +247,10 @@
- UNAME := $(shell uname)
-
- ## Linux/GNU
+@@ -539,7 +539,7 @@
+ # =========================================================
+ # make install is validated only for the following targets
+ # =========================================================
 -ifneq (,$(filter Linux Darwin GNU/kFreeBSD GNU Haiku OpenBSD FreeBSD NetBSD DragonFly SunOS CYGWIN% , $(UNAME)))
 +ifneq (,$(filter Linux Darwin GNU/kFreeBSD GNU Haiku IABSD OpenBSD FreeBSD NetBSD DragonFly SunOS CYGWIN% , $(UNAME)))
 
- GREP ?= grep
--ifneq (,$(filter $(UNAME),OpenBSD FreeBSD NetBSD DragonFly SunOS))
-+ifneq (,$(filter $(UNAME),IABSD OpenBSD FreeBSD NetBSD DragonFly SunOS))
- SONAME_FLAGS =
+ DESTDIR     ?=
+ # directory variables: GNU conventions prefer lowercase
+@@ -565,7 +565,7 @@
+ PKGCONFIGDIR ?= $(LIBDIR)/pkgconfig
  endif
 
+-ifneq (,$(filter $(UNAME),OpenBSD FreeBSD NetBSD DragonFly SunOS))
++ifneq (,$(filter $(UNAME),IABSD OpenBSD FreeBSD NetBSD DragonFly SunOS))
+ MANDIR  ?= $(PREFIX)/man/man1
+ else
+ MANDIR  ?= $(man1dir)

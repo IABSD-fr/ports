@@ -5,7 +5,7 @@ Index: mesonbuild/build.py
      get_filenames_templates_dict, substitute_values, has_path_sep,
      is_parent_path, relpath, PerMachineDefaultable,
      MesonBugException, EnvironmentVariables, pickle_load, lazy_property,
-+    is_openbsd,
++    is_openbsd, is_iabsd,
  )
  from .options import OptionKey
  
@@ -13,7 +13,7 @@ Index: mesonbuild/build.py
              if self.darwin_versions is None and self.soversion is not None:
                  # If unspecified, pick the soversion
                  self.darwin_versions = (self.soversion, self.soversion)
-+        if is_openbsd():
++        if is_openbsd() or is_iabsd():
 +            libname = self.name
 +            if hasattr(self, 'prefix'):
 +                prefixed_name = self.prefix + self.name
@@ -44,7 +44,7 @@ Index: mesonbuild/build.py
          # filename. If ltversion != soversion we create an soversion alias:
          # libfoo.so.0 -> libfoo.so.0.100.0
          # Where libfoo.so.0.100.0 is the actual library
-+        if is_openbsd() and self.libversion is not None:
++        if (is_openbsd() or is_iabsd()) and self.libversion is not None:
 +            return {}
          if self.suffix == 'so' and self.ltversion and self.ltversion != self.soversion:
              alias_tpl = self.filename_tpl.replace('ltversion', 'soversion')

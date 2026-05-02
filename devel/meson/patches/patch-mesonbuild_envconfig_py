@@ -1,0 +1,26 @@
+Add is_iabsd() to meson machine info.
+
+Index: mesonbuild/envconfig.py
+--- mesonbuild/envconfig.py.orig
++++ mesonbuild/envconfig.py
+@@ -358,6 +358,12 @@
+         """
+         return self.system == 'openbsd'
+
++    def is_iabsd(self) -> bool:
++        """
++        Machine is IABSD?
++        """
++        return self.system == 'iabsd'
++
+     def is_dragonflybsd(self) -> bool:
+         """Machine is DragonflyBSD?"""
+         return self.system == 'dragonfly'
+@@ -585,7 +591,7 @@
+     if mesonlib.is_windows():
+         trial = detect_windows_arch(compilers)
+-    elif mesonlib.is_freebsd() or mesonlib.is_netbsd() or mesonlib.is_openbsd() or mesonlib.is_qnx() or mesonlib.is_aix():
++    elif mesonlib.is_freebsd() or mesonlib.is_netbsd() or mesonlib.is_openbsd() or mesonlib.is_iabsd() or mesonlib.is_qnx() or mesonlib.is_aix():
+         trial = platform.processor().lower()
+     else:
+         trial = platform.machine().lower()

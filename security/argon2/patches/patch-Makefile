@@ -10,10 +10,11 @@ Index: Makefile
  
  ifeq ($(NO_THREADS), 1)
  CFLAGS += -DARGON2_NO_THREADS
-@@ -77,7 +77,7 @@ ifeq ($(KERNEL_NAME), Linux)
+@@ -77,8 +77,8 @@ ifeq ($(KERNEL_NAME), Linux)
  	PC_EXTRA_LIBS ?= -lrt -ldl
  endif
- ifeq ($(KERNEL_NAME), $(filter $(KERNEL_NAME),DragonFly FreeBSD NetBSD OpenBSD))
+-ifeq ($(KERNEL_NAME), $(filter $(KERNEL_NAME),DragonFly FreeBSD NetBSD OpenBSD))
++ifeq ($(KERNEL_NAME), $(filter $(KERNEL_NAME),DragonFly FreeBSD NetBSD OpenBSD IABSD))
 -	LIB_EXT := so
 +	LIB_EXT := so.$(ABI_VERSION)
  	LIB_CFLAGS := -shared -fPIC

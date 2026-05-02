@@ -1,0 +1,13 @@
+Handle IABSD ORIGIN recording like OpenBSD.
+
+Index: mesonbuild/linkers/linkers.py
+--- mesonbuild/linkers/linkers.py.orig
++++ mesonbuild/linkers/linkers.py
+@@ -769,7 +769,7 @@
+             all_paths.update(extra_paths)
+
+         # TODO: should this actually be "for (dragonfly|open)bsd"?
+-        if mesonlib.is_dragonflybsd() or mesonlib.is_openbsd():
++        if mesonlib.is_dragonflybsd() or mesonlib.is_openbsd() or mesonlib.is_iabsd():
+             # This argument instructs the compiler to record the value of
+             # ORIGIN in the .dynamic section of the elf. On Linux this is done

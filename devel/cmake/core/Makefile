@@ -49,4 +49,7 @@ MAKE_ENV +=		MODCMAKE_PORT_BUILD=yes
 TEST_TARGET =		test
 TEST_DEPENDS +=		devel/git
 
+post-extract:
+	cp ${WRKSRC}/Modules/Platform/OpenBSD.cmake ${WRKSRC}/Modules/Platform/IABSD.cmake
+
 .include <bsd.port.mk>
