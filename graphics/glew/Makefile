@@ -29,6 +29,7 @@ NO_TEST=	Yes
 
 post-extract:
 	@cp ${FILESDIR}/Makefile.openbsd ${WRKSRC}/config/Makefile.iabsd
+	@cp ${PORTSDIR}/infrastructure/db/config.guess ${WRKSRC}/config/config.guess
 
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/include/GL

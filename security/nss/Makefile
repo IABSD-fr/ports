@@ -87,7 +87,7 @@ OBJ64=			_64
 .endif
 
 post-extract:
-	cp ${WRKSRC}/coreconf/OpenBSD.mk ${WRKSRC}/coreconf/IABSD.mk
-	touch ${WRKSRC}/coreconf/IABSD0.1.mk
+	cp ${WRKDIST}/nss/coreconf/OpenBSD.mk ${WRKDIST}/nss/coreconf/IABSD.mk
+	touch ${WRKDIST}/nss/coreconf/IABSD0.1.mk
 
 .include <bsd.port.mk>
