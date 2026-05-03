@@ -3,7 +3,7 @@ Add IABSD support to pciutils configure.
 Index: lib/configure
 --- lib/configure.orig
 +++ lib/configure
-@@ -39,6 +39,9 @@
+@@ -30,6 +30,10 @@
  	if [ "$sys" = "DragonFly" ]
  	then
  		sys=freebsd

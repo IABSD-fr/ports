@@ -50,6 +50,19 @@ TEST_TARGET =		test
 TEST_DEPENDS +=		devel/git
 
 post-extract:
-	cp ${WRKSRC}/Modules/Platform/OpenBSD.cmake ${WRKSRC}/Modules/Platform/IABSD.cmake
+	for f in ${WRKSRC}/Modules/Platform/OpenBSD*.cmake; do \
+		cp $$f $$(echo $$f | sed 's/OpenBSD/IABSD/'); \
+	done
+	for f in ${WRKSRC}/Modules/Platform/Linker/OpenBSD*.cmake; do \
+		cp $$f $$(echo $$f | sed 's/OpenBSD/IABSD/'); \
+	done
+
+post-fake:
+	for f in ${WRKINST}${TRUEPREFIX}/share/cmake/Modules/Platform/OpenBSD*.cmake; do \
+		cp $$f $$(echo $$f | sed 's/OpenBSD/IABSD/'); \
+	done
+	for f in ${WRKINST}${TRUEPREFIX}/share/cmake/Modules/Platform/Linker/OpenBSD*.cmake; do \
+		cp $$f $$(echo $$f | sed 's/OpenBSD/IABSD/'); \
+	done
 
 .include <bsd.port.mk>

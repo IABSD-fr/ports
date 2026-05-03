@@ -4,18 +4,19 @@ Index: Makefile
 @@ -37,7 +37,7 @@ SRC_BENCH = src/bench.c
  SRC_GENKAT = src/genkat.c
  OBJ = $(SRC:.c=.o)
- 
+
 -CFLAGS += -std=c89 -O3 -Wall -g -Iinclude -Isrc
 +CFLAGS += -std=c89 -Wall -g -Iinclude -Isrc
- 
+
  ifeq ($(NO_THREADS), 1)
  CFLAGS += -DARGON2_NO_THREADS
-@@ -77,8 +77,8 @@ ifeq ($(KERNEL_NAME), Linux)
+@@ -76,8 +76,8 @@ ifeq ($(KERNEL_NAME), Linux)
+ 	LINKED_LIB_EXT := so
  	PC_EXTRA_LIBS ?= -lrt -ldl
  endif
 -ifeq ($(KERNEL_NAME), $(filter $(KERNEL_NAME),DragonFly FreeBSD NetBSD OpenBSD))
-+ifeq ($(KERNEL_NAME), $(filter $(KERNEL_NAME),DragonFly FreeBSD NetBSD OpenBSD IABSD))
 -	LIB_EXT := so
++ifeq ($(KERNEL_NAME), $(filter $(KERNEL_NAME),DragonFly FreeBSD NetBSD OpenBSD IABSD))
 +	LIB_EXT := so.$(ABI_VERSION)
  	LIB_CFLAGS := -shared -fPIC
  	PC_EXTRA_LIBS ?=
@@ -26,6 +27,6 @@ Index: Makefile
  		tar -c --exclude='.??*' -z -f $(DIST)-`date "+%Y%m%d"`.tgz $(DIST)/*
 +
 +export MAKE
- 
+
  .PHONY: test
  test:           $(SRC) src/test.c

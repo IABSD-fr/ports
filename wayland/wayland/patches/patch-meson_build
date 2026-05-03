@@ -1,8 +1,17 @@
-Add IABSD to epoll-shim detection.
+Add IABSD support.
 
 Index: meson.build
 --- meson.build.orig
 +++ meson.build
+@@ -16,7 +16,7 @@
+ config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
+
+ cc_args = []
+-if host_machine.system() not in ['freebsd', 'openbsd']
++if host_machine.system() not in ['freebsd', 'openbsd', 'iabsd']
+ 	cc_args += ['-D_POSIX_C_SOURCE=200809L']
+ endif
+ add_project_arguments(cc_args, language: 'c')
 @@ -69,7 +69,7 @@
  config_h.set10('HAVE_BROKEN_MSG_CMSG_CLOEXEC', have_broken_msg_cmsg_cloexec)
 
