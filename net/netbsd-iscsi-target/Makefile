@@ -15,7 +15,7 @@ SITES=		http://ftp.netbsd.org/pub/pkgsrc/distfiles/ \
 		ftp://ftp.netbsd.org/pub/pkgsrc/distfiles/
 
 CONFIGURE_STYLE=gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 pre-configure:
 	cd ${WRKSRC}/src/target; perl -pi -e \
 	    's,/etc/iscsi,${SYSCONFDIR}/iscsi,g' targets.5 iscsi-target.8

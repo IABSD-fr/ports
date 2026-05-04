@@ -14,7 +14,7 @@ WANTLIB =  c curses iconv intl pthread
 LIB_DEPENDS=		devel/gettext,-runtime
 TEST_DEPENDS=	misc/screen
 CONFIGURE_STYLE=	gnu
-CONFIGURE_ARGS=		--prefix="${PREFIX}"
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS=		--prefix="${PREFIX}"
 USE_GMAKE=		Yes
 
 .include <bsd.port.mk>

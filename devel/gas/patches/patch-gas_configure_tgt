@@ -1,0 +1,13 @@
+Add IABSD target to gas configure.
+
+Index: gas/configure.tgt
+--- gas/configure.tgt.orig
++++ gas/configure.tgt
+@@ -236,7 +236,7 @@
+   i386-*-knetbsd*-gnu | \
+   i386-*-netbsd* | \
+-  i386-*-openbsd*)			fmt=elf em=nbsd ;;
++  i386-*-openbsd* | i386-*-iabsd*)	fmt=elf em=nbsd ;;
+   i386-*-linux-*)			fmt=elf em=linux
+     case ${cpu}-${os} in
+       x86_64*-linux-gnux32)		arch=x86_64:32 ;;

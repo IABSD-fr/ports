@@ -29,7 +29,7 @@ MODPY_ADJ_FILES=tools/splitconfig \
 SEPARATE_BUILD=	No
 
 CONFIGURE_STYLE=gnu
-CONFIGURE_ARGS=	--disable-documentation
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS=	--disable-documentation
 USE_GMAKE=	Yes
 BUILD_DEPENDS=	textproc/xmlto
 

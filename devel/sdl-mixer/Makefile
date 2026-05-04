@@ -25,7 +25,7 @@ LIB_DEPENDS=	audio/flac \
 
 USE_GMAKE=	Yes
 CONFIGURE_STYLE= gnu
-CONFIGURE_ARGS+= --disable-music-flac-shared \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS+= --disable-music-flac-shared \
 		--disable-music-fluidsynth-midi \
 		--disable-music-mod-shared \
 		--disable-music-mp3-shared \

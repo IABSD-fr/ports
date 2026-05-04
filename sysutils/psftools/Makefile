@@ -17,7 +17,7 @@ WANTLIB +=	c
 SITES =		https://www.seasip.info/Unix/PSF/
 
 CONFIGURE_STYLE = gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 USE_GMAKE =	Yes
 
 .include <bsd.port.mk>

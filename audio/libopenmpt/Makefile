@@ -30,7 +30,7 @@ LIB_DEPENDS =	audio/flac \
 		audio/portaudio-svn
 
 CONFIGURE_STYLE = gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS += --without-portaudiocpp
 
 CXXFLAGS +=	-D_LIBCPP_HAS_C11_FEATURES \

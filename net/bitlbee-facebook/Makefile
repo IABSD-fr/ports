@@ -21,6 +21,6 @@ RUN_DEPENDS=		net/bitlbee
 LIB_DEPENDS=		devel/json-glib
 
 CONFIGURE_STYLE=	gnu
-LIBTOOL_FLAGS=		--tag=disable-static
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxLIBTOOL_FLAGS=		--tag=disable-static
 
 .include <bsd.port.mk>

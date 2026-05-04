@@ -16,7 +16,7 @@ SITES =			https://www.kokkonen.net/tjko/src/
 LIB_DEPENDS =		graphics/jpeg
 
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ARGS =	--with-libjpeg=${LOCALBASE}
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS =	--with-libjpeg=${LOCALBASE}
 
 DESTDIRNAME =		INSTALL_ROOT
 MAKE_FLAGS =		mandir=${PREFIX}/man

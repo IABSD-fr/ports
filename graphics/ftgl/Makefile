@@ -25,7 +25,7 @@ WRKDIST =		${WRKDIR}/${DISTNAME:S/-rc/~rc/}
 
 SITES =			${SITE_SOURCEFORGE:=ftgl/}
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ARGS +=	--with-gl-inc=${X11BASE}/include	\
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS +=	--with-gl-inc=${X11BASE}/include	\
 			--with-gl-lib=${X11BASE}/lib
 
 CONFIGURE_ENV +=	ac_cv_path_DOXYGEN=no

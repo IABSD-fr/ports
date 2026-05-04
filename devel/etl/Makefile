@@ -20,5 +20,5 @@ SITES =			https://github.com/synfig/synfig/releases/download/v${V}/
 BUILD_DEPENDS =		devel/glib2mm
 
 CONFIGURE_STYLE =	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 .include <bsd.port.mk>

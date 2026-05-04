@@ -16,7 +16,7 @@ SITES=		${HOMEPAGE}download/
 
 AUTOCONF_VERSION=	2.65
 CONFIGURE_STYLE=	autoconf
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 # check-zsyncmake fails because the checksum it's looking for was
 # calculated with an earlier zsync, which uses different Hash-Lengths
 

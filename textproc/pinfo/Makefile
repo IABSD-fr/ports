@@ -20,7 +20,7 @@ LIB_DEPENDS=		devel/gettext,-runtime
 
 AUTOCONF_VERSION=	2.59
 CONFIGURE_STYLE=	autoconf
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 MAKE_FLAGS+=	INTLLIBS='-L${LOCALBASE}/lib -lintl -liconv'
 
 post-install:

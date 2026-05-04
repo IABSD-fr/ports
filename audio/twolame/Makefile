@@ -21,5 +21,5 @@ WANTLIB += vorbisenc
 LIB_DEPENDS=	audio/libsndfile
 
 CONFIGURE_STYLE=gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 .include <bsd.port.mk>

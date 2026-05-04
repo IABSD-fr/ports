@@ -17,7 +17,7 @@ WANTLIB += c curses m pthread readline
 SITES =		https://github.com/ibara/ports/releases/download/v1.0/
 
 CONFIGURE_STYLE =	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 USE_GMAKE =	Yes
 
 FAKE_FLAGS =	sysconfdir="${PREFIX}/share/Regina-REXX"

@@ -29,7 +29,7 @@ CXXFLAGS +=		-O0
 LIB_DEPENDS=		textproc/opensp
 
 CONFIGURE_STYLE=	gnu
-CONFIGURE_ARGS=		--datadir=${PREFIX}/share/sgml/openjade
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS=		--datadir=${PREFIX}/share/sgml/openjade
 
 USE_GMAKE=		Yes
 NO_TEST=		Yes

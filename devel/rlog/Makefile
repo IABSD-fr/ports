@@ -14,5 +14,5 @@ COMPILER =		base-clang ports-gcc base-gcc
 
 SITES =			${SITE_GOOGLECODE:=rlog/}
 CONFIGURE_STYLE =	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 .include <bsd.port.mk>

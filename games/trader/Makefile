@@ -20,7 +20,7 @@ LIB_DEPENDS =	converters/libiconv \
 		devel/gettext,-runtime
 
 CONFIGURE_STYLE = gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 # Prevent configure to error out because we have no <monetary.h>
 CONFIGURE_ENV += ac_cv_header_monetary_h=yes
 

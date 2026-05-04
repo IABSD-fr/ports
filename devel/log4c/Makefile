@@ -13,7 +13,7 @@ PERMIT_PACKAGE=	Yes
 WANTLIB += expat pthread
 
 CONFIGURE_STYLE=gnu
-CONFIGURE_ENV=	ac_cv_path_DOT="" \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV=	ac_cv_path_DOT="" \
 		ac_cv_path_DOXYGEN="" \
 		ac_cv_path_LATEX=""
 

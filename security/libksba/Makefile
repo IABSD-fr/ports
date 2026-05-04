@@ -22,5 +22,5 @@ LIB_DEPENDS = 		devel/gettext,-runtime \
 WANTLIB += gpg-error iconv intl pthread
 
 CONFIGURE_STYLE = 	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 .include <bsd.port.mk>

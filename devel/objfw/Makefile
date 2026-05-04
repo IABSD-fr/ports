@@ -25,7 +25,7 @@ SITES =			https://objfw.nil.im/downloads/
 COMPILER=		base-clang ports-clang
 
 CONFIGURE_STYLE =	gnu
-CONFIGURE_FLAGS +=	--disable-silent-rules
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_FLAGS +=	--disable-silent-rules
 
 MAKE_FLAGS +=	OBJFW_LIB_MAJOR=${LIBobjfw_VERSION:R}
 MAKE_FLAGS +=	OBJFW_LIB_MINOR=${LIBobjfw_VERSION:E}

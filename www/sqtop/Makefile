@@ -21,5 +21,5 @@ COMPILER =		base-clang ports-gcc base-gcc
 CXXFLAGS_base-clang =	-std=c++14
 
 CONFIGURE_STYLE=	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 .include <bsd.port.mk>

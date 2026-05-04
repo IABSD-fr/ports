@@ -25,7 +25,7 @@ LIB_DEPENDS +=	security/libgpg-error
 USE_LIBTOOL = 		gnu
 
 CONFIGURE_STYLE=	gnu
-# PIE is taken care of on a per-arch basis on OpenBSD, and stack
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux# PIE is taken care of on a per-arch basis on OpenBSD, and stack
 # protection is enabled anyway.
 CONFIGURE_ARGS=		--disable-gcc-hardening \
 			--disable-linker-hardening

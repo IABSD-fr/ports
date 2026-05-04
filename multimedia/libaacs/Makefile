@@ -23,7 +23,7 @@ BUILD_DEPENDS =		devel/bison
 
 SEPARATE_BUILD =	Yes
 CONFIGURE_STYLE =	gnu
-YACC =			${LOCALBASE}/bin/bison -y
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxYACC =			${LOCALBASE}/bin/bison -y
 CONFIGURE_ARGS =	--disable-optimizations
 
 .include <bsd.port.mk>

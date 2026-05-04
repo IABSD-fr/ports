@@ -25,7 +25,7 @@ RUN_DEPENDS =	shells/bash
 
 WRKCONF =		${WRKSRC}/scripts
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ENV =		CPPFLAGS="-I${X11BASE}/include" \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV =		CPPFLAGS="-I${X11BASE}/include" \
 			CFLAGS="-std=gnu89 ${CFLAGS}"
 CONFIGURE_ARGS =	--with-distdir=${PREFIX} \
 			--with-tcl=${MODTCL_LIBDIR} \

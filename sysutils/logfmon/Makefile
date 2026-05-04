@@ -16,7 +16,7 @@ WANTLIB=		c pthread
 SITES=			https://github.com/nicm/logfmon/releases/download/$V/
 
 CONFIGURE_STYLE=	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/logfmon
 	${INSTALL_DATA} ${WRKSRC}/examples/* ${PREFIX}/share/examples/logfmon

@@ -17,7 +17,7 @@ SITES=		https://micans.org/mcl/src/
 WANTLIB=	c m pthread
 
 CONFIGURE_STYLE=gnu
-USE_GROFF =	Yes
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxUSE_GROFF =	Yes
 
 FAKE_FLAGS=	exampledir=${PREFIX}/share/examples/mcl/
 

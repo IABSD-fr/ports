@@ -14,7 +14,7 @@ WANTLIB =		c jpeg m
 LIB_DEPENDS =		graphics/jpeg
 
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ARGS =	--with-libjpeg=${LOCALBASE}
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS =	--with-libjpeg=${LOCALBASE}
 
 USE_GMAKE =		Yes
 

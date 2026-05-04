@@ -16,7 +16,7 @@ PERMIT_PACKAGE =	Yes
 WANTLIB =		c crypto ssl
 
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ARGS =	--without-pam
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS =	--without-pam
 
 FAKE_FLAGS =		docdir="${PREFIX}/share/doc/login_duo" \
 			includedir="${PREFIX}/include/duo" \

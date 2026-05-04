@@ -56,7 +56,7 @@ NO_TEST =		Yes
 USE_GMAKE =		Yes
 
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ARGS +=	--enable-libffi \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS +=	--enable-libffi \
 			--enable-pthread \
 			--enable-iconv \
 			--enable-curses \

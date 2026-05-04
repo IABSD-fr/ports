@@ -53,7 +53,7 @@ INSTALL_TARGET =	soinstall install
 COMPILER =		base-clang ports-gcc
 COMPILER_LANGS =	c
 CONFIGURE_STYLE =	simple
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--prefix=${PREFIX}
 CONFIGURE_ARGS +=	--with-gs=gs
 CONFIGURE_ARGS +=	--with-pcl=gpcl6

@@ -127,7 +127,12 @@ MODCMAKE_DEBUG ?=		No
 .if empty(CONFIGURE_STYLE)
 CONFIGURE_STYLE =	cmake
 .endif
-MODCMAKE_configure =	cd ${WRKBUILD} && ${SETENV} \
+MODCMAKE_configure =	for f in $$(find ${WRKSRC} -name CMakeLists.txt -o -name '*.cmake'); \
+	do \
+		sed -i -e 's/STREQUAL "OpenBSD"/STREQUAL "OpenBSD" OR CMAKE_SYSTEM_NAME STREQUAL "IABSD"/g' \
+			-e 's/MATCHES "OpenBSD/MATCHES "OpenBSD|IABSD/g' $$f; \
+	done; \
+	cd ${WRKBUILD} && ${SETENV} \
 	CC="${CC}" CFLAGS="${CFLAGS}" \
 	CXX="${CXX}" CXXFLAGS="${CXXFLAGS}" \
 	${CONFIGURE_ENV} ${LOCALBASE}/bin/cmake \

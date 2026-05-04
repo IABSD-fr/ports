@@ -23,7 +23,7 @@ SUBST_VARS +=		CONFDIR LOGDIR
 
 LIBTOOL_FLAGS =		--tag=disable-static
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ARGS =	--enable-openssl=/usr \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS =	--enable-openssl=/usr \
 			--with-confdir=${CONFDIR} \
 			--with-logdir=${LOGDIR} \
 			--with-helpdir=${PREFIX}/share/ircd-ratbox/help \

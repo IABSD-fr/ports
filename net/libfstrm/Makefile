@@ -19,6 +19,6 @@ SITES=		https://dl.farsightsecurity.com/dist/fstrm/
 LIB_DEPENDS=	devel/libevent2
 
 CONFIGURE_STYLE= gnu
-USE_GMAKE=	Yes
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxUSE_GMAKE=	Yes
 
 .include <bsd.port.mk>

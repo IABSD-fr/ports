@@ -17,7 +17,7 @@ PERMIT_PACKAGE =Yes
 BUILD_DEPENDS =	devel/riscv-elf/newlib
 
 CONFIGURE_STYLE =gnu
-CONFIGURE_ARGS =--host=riscv64-unknown-elf
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS =--host=riscv64-unknown-elf
 CONFIGURE_ENV =	CC=riscv64-unknown-elf-gcc
 
 USE_GMAKE =	Yes

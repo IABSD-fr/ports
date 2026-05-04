@@ -12,7 +12,7 @@ PERMIT_PACKAGE=	Yes
 WANTLIB =  c curses iconv intl m pthread
 
 CONFIGURE_STYLE=	gnu
-CONFIGURE_ENV+=		YACC="bison -y" \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV+=		YACC="bison -y" \
 			LDFLAGS="-L/usr/local/lib" \
 			LIBS="-liconv -lintl"
 BUILD_DEPENDS=		devel/bison

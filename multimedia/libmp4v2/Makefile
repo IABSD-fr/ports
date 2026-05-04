@@ -23,7 +23,7 @@ BUILD_DEPENDS =		devel/help2man
 USE_GMAKE =		Yes
 MAKE_FILE =		GNUmakefile
 CONFIGURE_STYLE =	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 # As of mp4v2-1.9.1, the code is written for c++03, using c++>=11 causes too
 # many narrowing to int issues in a roll-your-own options management, among
 # others.

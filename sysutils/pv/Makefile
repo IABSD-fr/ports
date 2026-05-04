@@ -13,7 +13,7 @@ SITES =			https://www.ivarch.com/programs/sources/
 WANTLIB =		c curses iconv intl m pthread
 
 CONFIGURE_STYLE =	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 LIB_DEPENDS =		converters/libiconv \
 			devel/gettext,-runtime
 

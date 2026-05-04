@@ -23,7 +23,7 @@ LIB_DEPENDS=	devel/gettext,-runtime
 TEST_DEPENDS=	lang/cython
 
 CONFIGURE_STYLE= gnu
-CONFIGURE_ARGS=	--without-included-gettext
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS=	--without-included-gettext
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib" \
 		CYTHON=cython

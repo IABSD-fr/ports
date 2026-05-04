@@ -21,7 +21,7 @@ COMPILER =		base-clang ports-gcc base-gcc
 LIB_DEPENDS =		textproc/icu4c
 
 CONFIGURE_STYLE =	gnu
-USE_GMAKE =		Yes
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxUSE_GMAKE =		Yes
 
 CONFIGURE_ARGS +=	--disable-static \
 			--disable-network

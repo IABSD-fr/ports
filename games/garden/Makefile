@@ -23,7 +23,7 @@ RUN_DEPENDS =		devel/desktop-file-utils \
 LIB_DEPENDS =		games/allegro
 
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ENV =		CPPFLAGS="${CPPFLAGS} -I${LOCALBASE}/include"
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV =		CPPFLAGS="${CPPFLAGS} -I${LOCALBASE}/include"
 CFLAGS += -fgnu89-inline -fcommon
 
 .include <bsd.port.mk>

@@ -28,7 +28,7 @@ COMPILER_LANGS=	c
 LIB_DEPENDS=	devel/fribidi
 
 CONFIGURE_STYLE= gnu
-# Needs GLEW MX
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux# Needs GLEW MX
 CONFIGURE_ARGS+= --without-glew --disable-executables
 CONFIGURE_ENV=	CPPFLAGS="-I${X11BASE}/include -I${LOCALBASE}/include" \
 		LDFLAGS="-L${X11BASE}/lib -L${LOCALBASE}/lib"

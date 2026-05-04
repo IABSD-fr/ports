@@ -21,7 +21,7 @@ COMPILER =	base-clang ports-gcc base-gcc
 SEPARATE_BUILD =	Yes
 
 CONFIGURE_STYLE =	gnu
-
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 LIB_DEPENDS +=	converters/libiconv \
 		devel/gettext,-runtime
 
