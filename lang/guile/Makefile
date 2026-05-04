@@ -29,7 +29,7 @@ RUN_DEPENDS=	devel/slib
 
 SEPARATE_BUILD=		Yes
 CONFIGURE_STYLE=	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux ${WRKSRC}/guile-readline
 USE_GMAKE=		Yes
 
 # Needed because otherwise regress tests won't build:
