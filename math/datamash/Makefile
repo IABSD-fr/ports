@@ -17,6 +17,7 @@ WANTLIB=  c iconv intl m pthread
 LIB_DEPENDS=	devel/gettext,-runtime
 
 CONFIGURE_STYLE=gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS=	--with-bash-completion-dir=${PREFIX}/share/bash-completion/completions/
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS=	--with-bash-completion-dir=${PREFIX}/share/bash-completion/completions/
 
 .include <bsd.port.mk>

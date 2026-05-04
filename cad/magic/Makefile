@@ -38,7 +38,8 @@ USE_GMAKE=	Yes
 MAKE_FLAGS=	MAGIC_COMMIT=
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS +=	--enable-cairo-offscreen \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS +=	--enable-cairo-offscreen \
 			--with-distdir=${PREFIX} \
 			--with-tcl=${MODTCL_LIBDIR} \
 			--with-tk=${MODTK_LIBDIR}

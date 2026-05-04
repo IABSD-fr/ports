@@ -29,7 +29,8 @@ LIB_DEPENDS =		graphics/jpeg>=1.5.0v0
 SEPARATE_BUILD =	Yes
 LIBTOOL_FLAGS =		--tag=disable-static
 CONFIGURE_STYLE =	autoconf
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS =	--disable-doxygen-doc \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS =	--disable-doxygen-doc \
 			--disable-libdvbv5 \
 			--disable-static
 CONFIGURE_ENV =		CPPFLAGS="${CPPFLAGS}" \

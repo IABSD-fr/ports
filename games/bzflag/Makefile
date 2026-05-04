@@ -32,7 +32,8 @@ RUN_DEPENDS=	devel/desktop-file-utils
 SEPARATE_BUILD=	Yes
 LIBTOOL_FLAGS=	--tag=disable-static
 CONFIGURE_STYLE= gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV=	CPPFLAGS="-I${X11BASE}/include -I${LOCALBASE}/include" \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ENV=	CPPFLAGS="-I${X11BASE}/include -I${LOCALBASE}/include" \
 		LDFLAGS="-L${X11BASE}/lib -L${LOCALBASE}/lib" \
 		ac_cv_lib_bind_gethostent=no \
 		ac_cv_header_linux_input_h=no

@@ -21,7 +21,8 @@ NO_TEST =	Yes
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS +=	--disable-unicode \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS +=	--disable-unicode \
 			--disable-taskstats
 
 post-install:

@@ -23,7 +23,8 @@ BUILD_DEPENDS=		converters/libiconv \
 			devel/sdl2
 
 CONFIGURE_STYLE=	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS+=	--with-tools \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS+=	--with-tools \
 			--with-tests
 CONFIGURE_ENV+=		LIBS=-pthread \
 			png_CFLAGS="`pkg-config --cflags libpng`" \

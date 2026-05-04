@@ -27,7 +27,8 @@ LIB_DEPENDS =		security/libsodium
 USE_GMAKE =		Yes
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS =	--disable-Werror
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS =	--disable-Werror
 # XXX: verify tweetnacl (the default) uses proper randomness before using it
 CONFIGURE_ARGS +=	--with-libsodium
 

@@ -20,6 +20,7 @@ LIB_DEPENDS =		devel/gettext,-runtime \
 			graphics/png
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV =		LDFLAGS="-L${LOCALBASE}/lib"
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ENV =		LDFLAGS="-L${LOCALBASE}/lib"
 
 .include <bsd.port.mk>

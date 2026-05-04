@@ -31,7 +31,8 @@ LIB_DEPENDS +=		devel/libbfio \
 			sysutils/libsmraw
 
 CONFIGURE_STYLE =	simple
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS +=	--prefix='${PREFIX}' \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS +=	--prefix='${PREFIX}' \
 			--mandir=${PREFIX}/man \
 			--enable-python \
 			--with-pythondir=${MODPY_SITEPKG} \

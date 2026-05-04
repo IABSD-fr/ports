@@ -43,7 +43,8 @@ LIB_DEPENDS =	devel/glib2 \
 		net/libmaxminddb
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS +=	--disable-tcp-wrapper \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS +=	--disable-tcp-wrapper \
 			--with-module-dir=${PREFIX}/lib/syslog-ng \
 			--with-pidfile-dir=/var/run \
 			--enable-json \

@@ -41,7 +41,8 @@ LIB_DEPENDS=	converters/libunistring \
 		devel/libffi
 
 CONFIGURE_STYLE= gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib"
 CONFIGURE_ARGS=	--enable-jit=no \
 		--program-suffix=${V}

@@ -21,7 +21,8 @@ COMPILER=	base-clang ports-gcc base-gcc
 LIB_DEPENDS+=	graphics/tiff
 
 CONFIGURE_STYLE= gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib"
 
 # Test suite included, but requires many build dependencies

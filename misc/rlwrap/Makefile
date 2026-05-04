@@ -14,7 +14,8 @@ WANTLIB=	c curses readline ptytty
 LIB_DEPENDS=	sysutils/libptytty
 
 CONFIGURE_STYLE=	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include" \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include" \
 			LDFLAGS="-L${LOCALBASE}/lib"
 
 # doesn't work well under ports infrastructure; doesn't respond to

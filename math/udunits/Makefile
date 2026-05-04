@@ -15,7 +15,8 @@ SITES =			ftp://ftp.unidata.ucar.edu/pub/udunits/
 WANTLIB +=		c expat m
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ENV =         CPPFLAGS="-I${LOCALBASE}/include" \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ENV =         CPPFLAGS="-I${LOCALBASE}/include" \
                         LDFLAGS="-L${LOCALBASE}/lib"
 
 TEST_DEPENDS =		devel/cunit

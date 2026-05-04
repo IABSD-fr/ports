@@ -20,7 +20,8 @@ SEPARATE_BUILD =	Yes
 USE_GMAKE =		Yes
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS =	--without-libmagic \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS =	--without-libmagic \
 			--without-glib \
 			--without-X11 \
 			--without-dyn-X11

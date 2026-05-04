@@ -20,7 +20,8 @@ LIB_DEPENDS =		security/libgcrypt
 
 SEPARATE_BUILD =	Yes
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-auxCONFIGURE_ARGS =	--disable-optimizations \
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
+CONFIGURE_ARGS =	--disable-optimizations \
 			--without-libaacs
 
 .include <bsd.port.mk>
