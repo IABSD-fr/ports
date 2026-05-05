@@ -24,4 +24,7 @@ PERMIT_PACKAGE =	Yes
 
 MODULES +=	lang/python
 
+post-extract:
+	cp ${PORTSDIR}/infrastructure/db/config.guess ${WRKSRC}/cmake/config.guess
+
 .include <bsd.port.mk>

@@ -20,6 +20,7 @@ LIB_DEPENDS=	devel/gettext,-runtime \
 		lang/guile \
 		textproc/libxml
 CONFIGURE_STYLE=gnu
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux ${WRKSRC}/config
 
 CONFIGURE_ARGS=	--without-libregex \
 		--includedir=${PREFIX}/include/autogen
