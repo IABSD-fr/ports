@@ -130,7 +130,8 @@ CONFIGURE_STYLE =	cmake
 MODCMAKE_configure =	for f in $$(find ${WRKSRC} -name CMakeLists.txt -o -name '*.cmake'); \
 	do \
 		sed -i -e 's/STREQUAL "OpenBSD"/STREQUAL "OpenBSD" OR CMAKE_SYSTEM_NAME STREQUAL "IABSD"/g' \
-			-e 's/MATCHES "OpenBSD/MATCHES "OpenBSD|IABSD/g' $$f; \
+			-e 's/MATCHES "OpenBSD/MATCHES "OpenBSD|IABSD/g' \
+			-e 's/|OpenBSD/|OpenBSD|IABSD/g' $$f; \
 	done; \
 	cd ${WRKBUILD} && ${SETENV} \
 	CC="${CC}" CFLAGS="${CFLAGS}" \
