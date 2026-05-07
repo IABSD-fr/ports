@@ -27,7 +27,6 @@ WANTLIB += LLVM drm_amdgpu elf pciaccess xcb-randr
 LIB_DEPENDS=		graphics/jpeg
 
 CONFIGURE_STYLE=	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=		--with-extra-prefix=${LOCALBASE} \
 			--disable-docs
 

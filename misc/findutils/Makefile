@@ -17,7 +17,6 @@ EXTRACT_SUFX=	.tar.xz
 LIB_DEPENDS=	devel/gettext,-runtime
 
 CONFIGURE_STYLE= gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=	--program-prefix="g"
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib"

@@ -45,7 +45,6 @@ PERMIT_PACKAGE=	Yes
 # XXX: cannot run autoconf due to use of gnu m4 feature
 # that isn't in base m4
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ENV+=		CFLAGS="${CFLAGS}" \
 			CPPFLAGS="${CFLAGS} ${CPPFLAGS}" \
 			LDFLAGS="${LDFLAGS}"

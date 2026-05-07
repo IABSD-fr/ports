@@ -26,7 +26,6 @@ LIB_DEPENDS =		devel/atf
 TEST_DEPENDS =		devel/kyua-cli
 
 CONFIGURE_STYLE  =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--without-doxygen
 CONFIGURE_ENV =		LUA_CFLAGS="`pkg-config --cflags ${MODLUA_DEP}`" \
 			LUA_LIBS="`pkg-config --libs ${MODLUA_DEP}`"

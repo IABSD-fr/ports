@@ -17,7 +17,6 @@ WANTLIB += m ${COMPILER_LIBCXX}
 COMPILER =		base-clang ports-gcc base-gcc
 
 CONFIGURE_STYLE = 	autoconf
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 AUTOCONF_VERSION = 	2.69
 CONFIGURE_ARGS =	--enable-static
 CONFIGURE_ENV =		ac_cv_prog_DOXYGEN=/bin/echo

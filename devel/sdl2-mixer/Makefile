@@ -29,7 +29,7 @@ LIB_DEPENDS =	audio/libvorbis \
 		devel/sdl2
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux ${WRKSRC}/build-scripts
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-scripts
 CONFIGURE_ARGS +=	--disable-music-midi-fluidsynth \
 			--disable-music-mod-modplug-shared \
 			--disable-music-ogg-stb \

@@ -24,7 +24,6 @@ LIB_DEPENDS=		converters/libiconv \
 USE_GMAKE=		Yes
 
 CONFIGURE_STYLE=	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=		--enable-compile-warnings=yes
 CONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include" \
 			LDFLAGS="-L${LOCALBASE}/lib"

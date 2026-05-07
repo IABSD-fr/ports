@@ -1,0 +1,37 @@
+Add IABSD support to ltconfig.
+
+Index: dist/ltconfig
+--- dist/ltconfig.orig
++++ dist/ltconfig
+@@ -1399,6 +1399,12 @@
+     hardcode_shlibpath_var=no
+     ;;
+
++  iabsd*)
++    archive_cmds='$LD -Bshareable -o $lib $libobjs $deplibs $linkopts'
++    hardcode_libdir_flag_spec='-R$libdir'
++    hardcode_direct=yes
++    hardcode_shlibpath_var=no
++    ;;
++
+   openbsd*)
+     archive_cmds='$LD -Bshareable -o $lib $libobjs $deplibs $linkopts'
+     hardcode_libdir_flag_spec='-R$libdir'
+@@ -2007,6 +2013,15 @@
+   shlibpath_var=LD_LIBRARY_PATH
+   ;;
+
++iabsd*)
++  version_type=sunos
++  if test "$with_gnu_ld" = yes; then
++    need_lib_prefix=no
++    need_version=no
++  fi
++  library_names_spec='${libname}${release}.so$versuffix ${libname}.so$versuffix'
++  finish_cmds='PATH="\$PATH:/sbin" ldconfig -m $libdir'
++  shlibpath_var=LD_LIBRARY_PATH
++  ;;
++
+ openbsd*)
+   version_type=sunos
+   if test "$with_gnu_ld" = yes; then

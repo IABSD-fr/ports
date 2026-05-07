@@ -20,7 +20,6 @@ COMPILER =		base-clang ports-gcc
 COMPILER_LANGS =	c
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--enable-libscrypt-kdf
 
 DEBUG_PACKAGES =	${BUILD_PACKAGES}

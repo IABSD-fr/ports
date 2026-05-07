@@ -25,7 +25,6 @@ FAKE_FLAGS =		TEXMF=${PREFIX}/share/texmf-local
 
 LIBTOOL_FLAGS =		--tag=disable-static
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--program-prefix=g
 CONFIGURE_ENV =		ac_cv_prog_AWK=gawk
 

@@ -16,7 +16,6 @@ WANTLIB += c m
 SITES =		http://software.internet2.edu/sources/owamp/
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/owampd
 	${INSTALL_DATA} ${WRKSRC}/conf/owampd.conf \

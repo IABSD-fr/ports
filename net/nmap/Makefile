@@ -30,7 +30,6 @@ MODULES=	lang/python \
 		lang/lua
 
 CONFIGURE_STYLE=  autoconf
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 AUTOCONF_VERSION= 2.71
 AUTOCONF_DIR=	${WRKSRC} ${WRKSRC}/ncat ${WRKSRC}/nping ${WRKSRC}/nsock/src
 

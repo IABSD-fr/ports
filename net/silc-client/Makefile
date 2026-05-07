@@ -26,7 +26,6 @@ SUBST_VARS=	CONFDIR
 #USE_LIBTOOL=	gnu
 LIBTOOL_FLAGS=	--tag=disable-shared
 CONFIGURE_STYLE= autoconf
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 AUTOCONF_VERSION= 2.69
 CONFIGURE_ARGS+= --disable-asm \
 		 --docdir=${PREFIX}/share/doc/silc \

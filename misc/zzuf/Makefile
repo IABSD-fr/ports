@@ -15,7 +15,6 @@ PERMIT_PACKAGE=	Yes
 WANTLIB=		c m
 
 CONFIGURE_STYLE=	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux# Necessary?
 USE_GROFF=		Yes
 
 .include <bsd.port.mk>

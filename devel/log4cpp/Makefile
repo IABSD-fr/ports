@@ -19,7 +19,6 @@ COMPILER =		base-clang ports-gcc base-gcc
 SITES=		${SITE_SOURCEFORGE:=log4cpp/}
 
 CONFIGURE_STYLE= gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS+= --with-pthreads \
 		--disable-doxygen
 SEPARATE_BUILD=	Yes

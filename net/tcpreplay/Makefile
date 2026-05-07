@@ -16,7 +16,6 @@ WANTLIB=	c dnet>=1
 SITES=   	https://github.com/appneta/tcpreplay/releases/download/v$V/
 
 CONFIGURE_STYLE= gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 LIB_DEPENDS=	net/libdnet
 
 do-test:

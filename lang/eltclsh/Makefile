@@ -20,7 +20,6 @@ MODTK_VERSION =		8.6
 
 SEPARATE_BUILD =	Yes
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS =	--with-tcl=${MODTCL_LIBDIR} \
 			--with-tk=${MODTK_LIBDIR} \
 			--libdir=\$${prefix}/lib/tcl \

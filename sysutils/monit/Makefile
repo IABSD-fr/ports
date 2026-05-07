@@ -21,7 +21,6 @@ COMPILER=	base-clang ports-gcc
 COMPILER_LANGS=	c
 
 CONFIGURE_STYLE=gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 # Must specify C99 for base-gcc
 CFLAGS+=	-std=c99
 

@@ -23,7 +23,6 @@ SITES=		${SITE_SOURCEFORGE:=pfe/}
 EXTRACT_SUFX=	.tar.bz2
 
 CONFIGURE_STYLE=	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ARGS=		--mandir=${PREFIX}/man
 
 # this renames floating.so to libfloating.so before linking with it

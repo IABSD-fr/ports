@@ -21,7 +21,6 @@ WANTLIB += c com_err curses ext2fs iconv jpeg ntfs-3g uuid z
 SUBST_VARS +=		VERSION
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 CONFIGURE_ENV =		CPPFLAGS="-I${LOCALBASE}/include" \
 			LDFLAGS="-L${LOCALBASE}/lib -luuid"
 CONFIGURE_ARGS =	--disable-qt

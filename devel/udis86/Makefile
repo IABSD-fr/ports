@@ -23,7 +23,6 @@ BUILD_DEPENDS =	devel/yasm \
 		textproc/py-sphinx
 
 CONFIGURE_STYLE =	autoconf
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 AUTOCONF_VERSION =	2.69
 MAKE_ENV =		LIBudis86_VERSION=${LIBudis86_VERSION}
 

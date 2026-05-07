@@ -20,7 +20,6 @@ SITES =		https://github.com/cpptest/cpptest/releases/download/${V}/
 COMPILER =		base-clang ports-gcc
 
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 do-test:
 	${WRKSRC}/test/mytest
 

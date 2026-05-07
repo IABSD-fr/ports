@@ -21,7 +21,6 @@ HOMEPAGE=	https://embed.cs.utah.edu/csmith/
 SITES=		${HOMEPAGE}
 
 CONFIGURE_STYLE=gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 USE_GMAKE=	Yes
 NO_TEST=	Yes
 

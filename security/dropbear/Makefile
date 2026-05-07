@@ -20,7 +20,6 @@ SITES=		https://matt.ucc.asn.au/dropbear/releases/
 
 DEBUG_PACKAGES=	${BUILD_PACKAGES}
 CONFIGURE_STYLE= gnu
-MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 USE_GMAKE=	Yes
 
 # tests need network (they use pip to populate a venv)

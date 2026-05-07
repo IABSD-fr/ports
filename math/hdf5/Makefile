@@ -39,7 +39,7 @@ LIB_DEPENDS +=		archivers/libaec
 MODULES	=		fortran
 SEPARATE_BUILD =	Yes
 CONFIGURE_STYLE =	gnu
-MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/build-aux ${WRKSRC}/bin
+MODGNU_CONFIG_GUESS_DIRS =${WRKSRC} ${WRKSRC}/bin
 CONFIGURE_ARGS =	--enable-cxx \
 			--enable-fortran \
 			--with-szlib=${PREFIX}
