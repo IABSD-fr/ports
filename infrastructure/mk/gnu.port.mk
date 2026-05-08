@@ -67,7 +67,8 @@ MODGNU_configure = for d in ${MODGNU_CONFIG_GUESS_DIRS}; \
 	done; \
 	for f in $$(find ${WRKSRC} -name configure -o -name ltmain.sh); \
 	do \
-		sed -i -e 's/\*-openbsd\*/*-openbsd*|*-iabsd*/g' \
+		sed -i -e 's/\*-\*-\*openbsd\*/*-*-*openbsd*|*-*-*iabsd*/g' \
+			-e 's/\*-openbsd\*/*-openbsd*|*-iabsd*/g' \
 			-e 's/openbsd\*)/openbsd*|iabsd*)/g' \
 			-e 's/openbsd\*|/openbsd*|iabsd*|/g' \
 			-e 's/openbsd\* |/openbsd* | iabsd* |/g' \

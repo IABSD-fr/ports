@@ -31,6 +31,8 @@ CONFIGURE_ARGS=		--with-gl-libname=libGL.so \
 			--enable-xlib-egl-platform=yes \
 			--disable-maintainer-flags
 
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build
+
 TEST_DEPENDS=		shells/bash
 TEST_IS_INTERACTIVE=	x11
 

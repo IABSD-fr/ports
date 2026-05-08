@@ -13,11 +13,10 @@ Index: dist/ltconfig
 +    hardcode_direct=yes
 +    hardcode_shlibpath_var=no
 +    ;;
-+
    openbsd*)
      archive_cmds='$LD -Bshareable -o $lib $libobjs $deplibs $linkopts'
      hardcode_libdir_flag_spec='-R$libdir'
-@@ -2007,6 +2013,15 @@
+@@ -2007,6 +2013,16 @@
    shlibpath_var=LD_LIBRARY_PATH
    ;;
 
@@ -31,7 +30,6 @@ Index: dist/ltconfig
 +  finish_cmds='PATH="\$PATH:/sbin" ldconfig -m $libdir'
 +  shlibpath_var=LD_LIBRARY_PATH
 +  ;;
-+
  openbsd*)
    version_type=sunos
    if test "$with_gnu_ld" = yes; then

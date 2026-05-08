@@ -53,6 +53,7 @@ CXXFLAGS_ports-gcc =	-fdelete-null-pointer-checks
 LIB_DEPENDS =		devel/protobuf
 
 CONFIGURE_STYLE =	autoconf
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/build-aux
 AUTOCONF_VERSION =	2.72
 
 CONFIGURE_ENV =		CPPFLAGS="-I${LOCALBASE}/include" \

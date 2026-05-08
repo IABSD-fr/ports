@@ -67,6 +67,7 @@ post-extract:
 	chmod 0644 ${WRKSRC}/cf/cf/*.mc
 	cp ${FILESDIR}/sharedlibrary.m4 ${WRKSRC}/devtools/M4/UNIX/
 	chmod 0644 ${WRKSRC}/devtools/M4/UNIX/sharedlibrary.m4
+	cp ${WRKSRC}/devtools/OS/OpenBSD ${WRKSRC}/devtools/OS/IABSD
 	cp -R ${WRKSRC}/libmilter ${WRKSRC}/libsharedmilter
 	perl -pi -e 's=`library=`sharedlibrary=' ${WRKSRC}/libsharedmilter/Makefile.m4
 	${SUBST_CMD} -m 0644 -c ${FILESDIR}/site.OS.m4 \

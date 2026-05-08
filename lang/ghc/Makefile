@@ -115,6 +115,7 @@ USE_GROFF =		Yes
 AUTOCONF_VERSION =	2.71
 AUTOMAKE_VERSION =	1.16
 CONFIGURE_STYLE =	gnu autoreconf no-autoheader
+MODGNU_CONFIG_GUESS_DIRS=${WRKSRC} ${WRKSRC}/libraries/unix
 CONFIGURE_ARGS +=	--with-ffi-includes=${LOCALBASE}/include \
 			--with-ffi-libraries=${LOCALBASE}/lib \
 			--with-gmp-includes=${LOCALBASE}/include \
