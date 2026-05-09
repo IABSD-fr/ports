@@ -24,7 +24,7 @@ Index: src/modules/meson.build
  endif
  
 +# sndio(7)
-+if host_machine.system() == 'openbsd'
++if host_machine.system() == 'openbsd' or host_machine.system() == 'iabsd'
 +  libsndio_dep = dependency('sndio', required: true)
 +  all_modules += [
 +    [ 'module-sndio', 'module-sndio.c', [], [], [libsndio_dep], [] ],

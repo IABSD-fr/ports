@@ -69,6 +69,8 @@ MODGNU_configure = for d in ${MODGNU_CONFIG_GUESS_DIRS}; \
 	do \
 		sed -i -e 's/\*-\*-\*openbsd\*/*-*-*openbsd*|*-*-*iabsd*/g' \
 			-e 's/\*-openbsd\*/*-openbsd*|*-iabsd*/g' \
+			-e 's/xopenbsd\*)/xopenbsd*|xiabsd*)/g' \
+			-e 's/xopenbsd\*|/xopenbsd*|xiabsd*|/g' \
 			-e 's/openbsd\*)/openbsd*|iabsd*)/g' \
 			-e 's/openbsd\*|/openbsd*|iabsd*|/g' \
 			-e 's/openbsd\* |/openbsd* | iabsd* |/g' \
