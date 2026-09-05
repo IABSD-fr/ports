@@ -5,7 +5,8 @@ Index: mesonbuild/build.py
      get_filenames_templates_dict, substitute_values, has_path_sep,
      is_parent_path, relpath, PerMachineDefaultable,
      MesonBugException, EnvironmentVariables, pickle_load, lazy_property,
-     unwrap, is_openbsd, is_iabsd,
+-    unwrap,
++    unwrap, is_openbsd, is_iabsd,
  )
  from .options import OptionKey
  
