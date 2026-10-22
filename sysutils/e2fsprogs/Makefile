@@ -1,6 +1,7 @@
 COMMENT=	utilities to manipulate ext2 filesystems
 
 DISTNAME=	e2fsprogs-1.47.3
+REVISION=	0
 
 CATEGORIES=	sysutils devel
 
